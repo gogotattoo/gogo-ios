@@ -1,0 +1,670 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F71045D51EA1FE4F00FEAD4A /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71045D31EA1FE4F00FEAD4A /* Realm.framework */; };
+		F71045D61EA1FE4F00FEAD4A /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71045D41EA1FE4F00FEAD4A /* RealmSwift.framework */; };
+		F71045E21EA2013300FEAD4A /* Tattoo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045E11EA2013300FEAD4A /* Tattoo.swift */; };
+		F71045E41EA2037A00FEAD4A /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045E31EA2037A00FEAD4A /* Design.swift */; };
+		F71045E61EA2044C00FEAD4A /* Henna.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045E51EA2044C00FEAD4A /* Henna.swift */; };
+		F71045E81EA2049F00FEAD4A /* Piercing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045E71EA2049F00FEAD4A /* Piercing.swift */; };
+		F71045EA1EA204B900FEAD4A /* Dreadlocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045E91EA204B900FEAD4A /* Dreadlocks.swift */; };
+		F71045EC1EA205A000FEAD4A /* ArtWorkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045EB1EA205A000FEAD4A /* ArtWorkViewModel.swift */; };
+		F71045EE1EA2094A00FEAD4A /* ModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045ED1EA2094A00FEAD4A /* ModelProtocol.swift */; };
+		F71045F51EA2128E00FEAD4A /* DBRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045F01EA2128E00FEAD4A /* DBRoot.swift */; };
+		F71045F61EA2128E00FEAD4A /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045F11EA2128E00FEAD4A /* MainManager.swift */; };
+		F71045F71EA2128E00FEAD4A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045F21EA2128E00FEAD4A /* NetworkService.swift */; };
+		F71045FA1EA2158100FEAD4A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71045F91EA2158100FEAD4A /* Alamofire.framework */; };
+		F71045FE1EA21D7A00FEAD4A /* FileDirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045FD1EA21D7A00FEAD4A /* FileDirectoryManager.swift */; };
+		F76738AB1EA35C9B008E4D80 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76738AA1EA35C9B008E4D80 /* DeviceInfo.swift */; };
+		F76738AD1EA35DFA008E4D80 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76738AC1EA35DFA008E4D80 /* Constant.swift */; };
+		F76738AF1EA3612F008E4D80 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76738AE1EA3612F008E4D80 /* DataManager.swift */; };
+		F76738B31EA36C0D008E4D80 /* ArtistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76738B21EA36C0D008E4D80 /* ArtistViewModel.swift */; };
+		F76738B41EA37143008E4D80 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76738B01EA3678F008E4D80 /* SwiftDate.framework */; };
+		F76BBBDD1EA70D0800FD5759 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBDC1EA70D0800FD5759 /* Artist.swift */; };
+		F76BBBDF1EA73B3A00FD5759 /* BackgroundTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBDE1EA73B3A00FD5759 /* BackgroundTableViewHeaderView.swift */; };
+		F76BBBE11EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76BBBE01EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib */; };
+		F76BBBE41EA73DEA00FD5759 /* BackgroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBE21EA73DEA00FD5759 /* BackgroundTableViewCell.swift */; };
+		F76BBBE51EA73DEA00FD5759 /* BackgroundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76BBBE31EA73DEA00FD5759 /* BackgroundTableViewCell.xib */; };
+		F76BBBE91EA75F1B00FD5759 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBE81EA75F1B00FD5759 /* MenuCollectionViewCell.swift */; };
+		F76BBBEB1EA7697E00FD5759 /* ArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBEA1EA7697E00FD5759 /* ArtistCollectionViewCell.swift */; };
+		F76BBBED1EA76DDB00FD5759 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76BBBEC1EA76DDB00FD5759 /* AlamofireImage.framework */; };
+		F76BBBF01EA85A2800FD5759 /* ArtWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBEE1EA85A2800FD5759 /* ArtWorksViewController.swift */; };
+		F76BBBF11EA85A2800FD5759 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBEF1EA85A2800FD5759 /* MainViewController.swift */; };
+		F76BBBF41EA8695900FD5759 /* ArtWorkFilteredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBF31EA8695900FD5759 /* ArtWorkFilteredViewModel.swift */; };
+		F76BBBF61EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBF51EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift */; };
+		F76BBBF81EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBF71EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift */; };
+		F76BBBFB1EA8B1D500FD5759 /* ArtWorkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBF91EA8B1D500FD5759 /* ArtWorkTableViewCell.swift */; };
+		F76BBBFC1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76BBBFA1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib */; };
+		F76BBC001EA9AD4A00FD5759 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76BBBFF1EA9AD4A00FD5759 /* Nuke.framework */; };
+		F7B078901EAF49CE00B537AB /* TattooViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B0788F1EAF49CE00B537AB /* TattooViewModel.swift */; };
+		F7B078921EAF4B3900B537AB /* HennaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B078911EAF4B3900B537AB /* HennaViewModel.swift */; };
+		F7B078941EAF4C1600B537AB /* DesignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B078931EAF4C1600B537AB /* DesignViewModel.swift */; };
+		F7B078961EAF4CAE00B537AB /* PiercingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B078951EAF4CAE00B537AB /* PiercingViewModel.swift */; };
+		F7B078981EAF4EAF00B537AB /* DreadlocksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B078971EAF4EAF00B537AB /* DreadlocksViewModel.swift */; };
+		F7B8B52E1EA0BB65005C7474 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B52D1EA0BB65005C7474 /* Palette.swift */; };
+		F7B8B5301EA0BC5C005C7474 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B52F1EA0BC5C005C7474 /* Extensions.swift */; };
+		F7B8B5341EA0BD49005C7474 /* ProperNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B5331EA0BD49005C7474 /* ProperNavigationController.swift */; };
+		F7B8B5361EA0C169005C7474 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B5351EA0C169005C7474 /* BaseViewController.swift */; };
+		F7B8B53A1EA0C7ED005C7474 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B5391EA0C7ED005C7474 /* BaseView.swift */; };
+		F7F11AFC1EB06CB900F9E350 /* NukeToucanPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F11AFA1EB06CB900F9E350 /* NukeToucanPlugin.framework */; };
+		F7F11AFD1EB06CB900F9E350 /* Toucan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F11AFB1EB06CB900F9E350 /* Toucan.framework */; };
+		F7F11AFF1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F11AFE1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift */; };
+		F7F11B021EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F11B001EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.swift */; };
+		F7F11B031EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F11B011EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.xib */; };
+		F7F11B051EB10EFE00F9E350 /* QRCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F11B041EB10EFE00F9E350 /* QRCode.framework */; };
+		F7F11B081EB10F6000F9E350 /* QRCodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F11B061EB10F6000F9E350 /* QRCodeTableViewCell.swift */; };
+		F7F11B091EB10F6000F9E350 /* QRCodeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F11B071EB10F6000F9E350 /* QRCodeTableViewCell.xib */; };
+		F7F21A5A1E955990004824A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F21A591E955990004824A4 /* AppDelegate.swift */; };
+		F7F21A5F1E955990004824A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F21A5D1E955990004824A4 /* Main.storyboard */; };
+		F7F21A611E955990004824A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7F21A601E955990004824A4 /* Assets.xcassets */; };
+		F7F21A641E955990004824A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7F21A621E955990004824A4 /* LaunchScreen.storyboard */; };
+		F7F21A761E9559CA004824A4 /* ArtWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F21A701E9559CA004824A4 /* ArtWork.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F71045D31EA1FE4F00FEAD4A /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		F71045D41EA1FE4F00FEAD4A /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		F71045E11EA2013300FEAD4A /* Tattoo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tattoo.swift; sourceTree = "<group>"; };
+		F71045E31EA2037A00FEAD4A /* Design.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
+		F71045E51EA2044C00FEAD4A /* Henna.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Henna.swift; sourceTree = "<group>"; };
+		F71045E71EA2049F00FEAD4A /* Piercing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Piercing.swift; sourceTree = "<group>"; };
+		F71045E91EA204B900FEAD4A /* Dreadlocks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dreadlocks.swift; sourceTree = "<group>"; };
+		F71045EB1EA205A000FEAD4A /* ArtWorkViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkViewModel.swift; sourceTree = "<group>"; };
+		F71045ED1EA2094A00FEAD4A /* ModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelProtocol.swift; sourceTree = "<group>"; };
+		F71045F01EA2128E00FEAD4A /* DBRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBRoot.swift; sourceTree = "<group>"; };
+		F71045F11EA2128E00FEAD4A /* MainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainManager.swift; sourceTree = "<group>"; };
+		F71045F21EA2128E00FEAD4A /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F71045F91EA2158100FEAD4A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		F71045FD1EA21D7A00FEAD4A /* FileDirectoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDirectoryManager.swift; sourceTree = "<group>"; };
+		F76738AA1EA35C9B008E4D80 /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		F76738AC1EA35DFA008E4D80 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		F76738AE1EA3612F008E4D80 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		F76738B01EA3678F008E4D80 /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/iOS/SwiftDate.framework; sourceTree = "<group>"; };
+		F76738B21EA36C0D008E4D80 /* ArtistViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistViewModel.swift; sourceTree = "<group>"; };
+		F76BBBDC1EA70D0800FD5759 /* Artist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
+		F76BBBDE1EA73B3A00FD5759 /* BackgroundTableViewHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTableViewHeaderView.swift; sourceTree = "<group>"; };
+		F76BBBE01EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundTableViewHeaderView.xib; sourceTree = "<group>"; };
+		F76BBBE21EA73DEA00FD5759 /* BackgroundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTableViewCell.swift; sourceTree = "<group>"; };
+		F76BBBE31EA73DEA00FD5759 /* BackgroundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundTableViewCell.xib; sourceTree = "<group>"; };
+		F76BBBE81EA75F1B00FD5759 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		F76BBBEA1EA7697E00FD5759 /* ArtistCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistCollectionViewCell.swift; sourceTree = "<group>"; };
+		F76BBBEC1EA76DDB00FD5759 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		F76BBBEE1EA85A2800FD5759 /* ArtWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorksViewController.swift; sourceTree = "<group>"; };
+		F76BBBEF1EA85A2800FD5759 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F76BBBF31EA8695900FD5759 /* ArtWorkFilteredViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkFilteredViewModel.swift; sourceTree = "<group>"; };
+		F76BBBF51EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkListCollectionViewCell.swift; sourceTree = "<group>"; };
+		F76BBBF71EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkFilteredListViewModel.swift; sourceTree = "<group>"; };
+		F76BBBF91EA8B1D500FD5759 /* ArtWorkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkTableViewCell.swift; sourceTree = "<group>"; };
+		F76BBBFA1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtWorkTableViewCell.xib; sourceTree = "<group>"; };
+		F76BBBFD1EA91AF300FD5759 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		F76BBBFF1EA9AD4A00FD5759 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
+		F7B0788F1EAF49CE00B537AB /* TattooViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TattooViewModel.swift; sourceTree = "<group>"; };
+		F7B078911EAF4B3900B537AB /* HennaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HennaViewModel.swift; sourceTree = "<group>"; };
+		F7B078931EAF4C1600B537AB /* DesignViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignViewModel.swift; sourceTree = "<group>"; };
+		F7B078951EAF4CAE00B537AB /* PiercingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiercingViewModel.swift; sourceTree = "<group>"; };
+		F7B078971EAF4EAF00B537AB /* DreadlocksViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DreadlocksViewModel.swift; sourceTree = "<group>"; };
+		F7B8B52D1EA0BB65005C7474 /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		F7B8B52F1EA0BC5C005C7474 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F7B8B5331EA0BD49005C7474 /* ProperNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProperNavigationController.swift; sourceTree = "<group>"; };
+		F7B8B5351EA0C169005C7474 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		F7B8B5391EA0C7ED005C7474 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		F7F11AFA1EB06CB900F9E350 /* NukeToucanPlugin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NukeToucanPlugin.framework; path = Carthage/Build/iOS/NukeToucanPlugin.framework; sourceTree = "<group>"; };
+		F7F11AFB1EB06CB900F9E350 /* Toucan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Toucan.framework; path = Carthage/Build/iOS/Toucan.framework; sourceTree = "<group>"; };
+		F7F11AFE1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkDetailViewController.swift; sourceTree = "<group>"; };
+		F7F11B001EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkDetailTableViewCell.swift; sourceTree = "<group>"; };
+		F7F11B011EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtWorkDetailTableViewCell.xib; sourceTree = "<group>"; };
+		F7F11B041EB10EFE00F9E350 /* QRCode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QRCode.framework; path = Carthage/Build/iOS/QRCode.framework; sourceTree = "<group>"; };
+		F7F11B061EB10F6000F9E350 /* QRCodeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeTableViewCell.swift; sourceTree = "<group>"; };
+		F7F11B071EB10F6000F9E350 /* QRCodeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRCodeTableViewCell.xib; sourceTree = "<group>"; };
+		F7F21A561E955990004824A4 /* gogo-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "gogo-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7F21A591E955990004824A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F7F21A5E1E955990004824A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F7F21A601E955990004824A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F7F21A631E955990004824A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F7F21A651E955990004824A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7F21A701E9559CA004824A4 /* ArtWork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWork.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F7F21A531E955990004824A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7F11B051EB10EFE00F9E350 /* QRCode.framework in Frameworks */,
+				F7F11AFC1EB06CB900F9E350 /* NukeToucanPlugin.framework in Frameworks */,
+				F7F11AFD1EB06CB900F9E350 /* Toucan.framework in Frameworks */,
+				F76BBC001EA9AD4A00FD5759 /* Nuke.framework in Frameworks */,
+				F76BBBED1EA76DDB00FD5759 /* AlamofireImage.framework in Frameworks */,
+				F76738B41EA37143008E4D80 /* SwiftDate.framework in Frameworks */,
+				F71045FA1EA2158100FEAD4A /* Alamofire.framework in Frameworks */,
+				F71045D51EA1FE4F00FEAD4A /* Realm.framework in Frameworks */,
+				F71045D61EA1FE4F00FEAD4A /* RealmSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F71045D21EA1FE4F00FEAD4A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F7F11B041EB10EFE00F9E350 /* QRCode.framework */,
+				F7F11AFA1EB06CB900F9E350 /* NukeToucanPlugin.framework */,
+				F7F11AFB1EB06CB900F9E350 /* Toucan.framework */,
+				F76BBBFF1EA9AD4A00FD5759 /* Nuke.framework */,
+				F76BBBFD1EA91AF300FD5759 /* Kingfisher.framework */,
+				F76BBBEC1EA76DDB00FD5759 /* AlamofireImage.framework */,
+				F76738B01EA3678F008E4D80 /* SwiftDate.framework */,
+				F71045F91EA2158100FEAD4A /* Alamofire.framework */,
+				F71045D31EA1FE4F00FEAD4A /* Realm.framework */,
+				F71045D41EA1FE4F00FEAD4A /* RealmSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F76738A91EA35C91008E4D80 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				F76738AA1EA35C9B008E4D80 /* DeviceInfo.swift */,
+				F76738AC1EA35DFA008E4D80 /* Constant.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		F76BBBF21EA8693000FD5759 /* FilteredViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F76BBBF31EA8695900FD5759 /* ArtWorkFilteredViewModel.swift */,
+				F76BBBF71EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift */,
+			);
+			path = FilteredViewModel;
+			sourceTree = "<group>";
+		};
+		F7B8B5321EA0BD3A005C7474 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F7B8B5331EA0BD49005C7474 /* ProperNavigationController.swift */,
+				F7B8B5351EA0C169005C7474 /* BaseViewController.swift */,
+				F7B8B5391EA0C7ED005C7474 /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F7F21A4D1E955990004824A4 = {
+			isa = PBXGroup;
+			children = (
+				F7F21A581E955990004824A4 /* gogo-ios */,
+				F7F21A571E955990004824A4 /* Products */,
+				F71045D21EA1FE4F00FEAD4A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F7F21A571E955990004824A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F7F21A561E955990004824A4 /* gogo-ios.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F7F21A581E955990004824A4 /* gogo-ios */ = {
+			isa = PBXGroup;
+			children = (
+				F76738A91EA35C91008E4D80 /* Config */,
+				F7B8B5321EA0BD3A005C7474 /* Base */,
+				F7F21A6E1E9559CA004824A4 /* Model */,
+				F7F21A751E9559CA004824A4 /* View */,
+				F7F21A6D1E9559CA004824A4 /* Controller */,
+				F7F21A6B1E9559CA004824A4 /* Business */,
+				F7F21A6C1E9559CA004824A4 /* Components */,
+				F7F21A721E9559CA004824A4 /* Service */,
+				F7F21A731E9559CA004824A4 /* Utils */,
+				F7F21A741E9559CA004824A4 /* Vendors */,
+				F7F21A591E955990004824A4 /* AppDelegate.swift */,
+				F7F21A5D1E955990004824A4 /* Main.storyboard */,
+				F7F21A601E955990004824A4 /* Assets.xcassets */,
+				F7F21A621E955990004824A4 /* LaunchScreen.storyboard */,
+				F7F21A651E955990004824A4 /* Info.plist */,
+			);
+			path = "gogo-ios";
+			sourceTree = "<group>";
+		};
+		F7F21A6B1E9559CA004824A4 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		F7F21A6C1E9559CA004824A4 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F7F21A6D1E9559CA004824A4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F76BBBEF1EA85A2800FD5759 /* MainViewController.swift */,
+				F76BBBEE1EA85A2800FD5759 /* ArtWorksViewController.swift */,
+				F7F11AFE1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F7F21A6E1E9559CA004824A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F71045ED1EA2094A00FEAD4A /* ModelProtocol.swift */,
+				F7F21A6F1E9559CA004824A4 /* RawModel */,
+				F7F21A711E9559CA004824A4 /* ViewModel */,
+				F76BBBF21EA8693000FD5759 /* FilteredViewModel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F7F21A6F1E9559CA004824A4 /* RawModel */ = {
+			isa = PBXGroup;
+			children = (
+				F76BBBDC1EA70D0800FD5759 /* Artist.swift */,
+				F7F21A701E9559CA004824A4 /* ArtWork.swift */,
+				F71045E11EA2013300FEAD4A /* Tattoo.swift */,
+				F71045E51EA2044C00FEAD4A /* Henna.swift */,
+				F71045E31EA2037A00FEAD4A /* Design.swift */,
+				F71045E71EA2049F00FEAD4A /* Piercing.swift */,
+				F71045E91EA204B900FEAD4A /* Dreadlocks.swift */,
+			);
+			path = RawModel;
+			sourceTree = "<group>";
+		};
+		F7F21A711E9559CA004824A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F76738B21EA36C0D008E4D80 /* ArtistViewModel.swift */,
+				F71045EB1EA205A000FEAD4A /* ArtWorkViewModel.swift */,
+				F7B0788F1EAF49CE00B537AB /* TattooViewModel.swift */,
+				F7B078911EAF4B3900B537AB /* HennaViewModel.swift */,
+				F7B078931EAF4C1600B537AB /* DesignViewModel.swift */,
+				F7B078951EAF4CAE00B537AB /* PiercingViewModel.swift */,
+				F7B078971EAF4EAF00B537AB /* DreadlocksViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F7F21A721E9559CA004824A4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F71045F11EA2128E00FEAD4A /* MainManager.swift */,
+				F76738AE1EA3612F008E4D80 /* DataManager.swift */,
+				F71045F01EA2128E00FEAD4A /* DBRoot.swift */,
+				F71045F21EA2128E00FEAD4A /* NetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		F7F21A731E9559CA004824A4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F71045FD1EA21D7A00FEAD4A /* FileDirectoryManager.swift */,
+				F7B8B52D1EA0BB65005C7474 /* Palette.swift */,
+				F7B8B52F1EA0BC5C005C7474 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F7F21A741E9559CA004824A4 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		F7F21A751E9559CA004824A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F76BBBDE1EA73B3A00FD5759 /* BackgroundTableViewHeaderView.swift */,
+				F76BBBE01EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib */,
+				F76BBBE21EA73DEA00FD5759 /* BackgroundTableViewCell.swift */,
+				F76BBBE31EA73DEA00FD5759 /* BackgroundTableViewCell.xib */,
+				F76BBBE81EA75F1B00FD5759 /* MenuCollectionViewCell.swift */,
+				F76BBBEA1EA7697E00FD5759 /* ArtistCollectionViewCell.swift */,
+				F76BBBF51EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift */,
+				F76BBBF91EA8B1D500FD5759 /* ArtWorkTableViewCell.swift */,
+				F76BBBFA1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib */,
+				F7F11B001EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.swift */,
+				F7F11B011EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.xib */,
+				F7F11B061EB10F6000F9E350 /* QRCodeTableViewCell.swift */,
+				F7F11B071EB10F6000F9E350 /* QRCodeTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F7F21A551E955990004824A4 /* gogo-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7F21A681E955990004824A4 /* Build configuration list for PBXNativeTarget "gogo-ios" */;
+			buildPhases = (
+				F7F21A521E955990004824A4 /* Sources */,
+				F7F21A531E955990004824A4 /* Frameworks */,
+				F7F21A541E955990004824A4 /* Resources */,
+				F76738B51EA373DC008E4D80 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "gogo-ios";
+			productName = "gogo-ios";
+			productReference = F7F21A561E955990004824A4 /* gogo-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F7F21A4E1E955990004824A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Hongli Yu";
+				TargetAttributes = {
+					F7F21A551E955990004824A4 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = FC9QT6TC28;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F7F21A511E955990004824A4 /* Build configuration list for PBXProject "gogo-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F7F21A4D1E955990004824A4;
+			productRefGroup = F7F21A571E955990004824A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F7F21A551E955990004824A4 /* gogo-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F7F21A541E955990004824A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7F21A641E955990004824A4 /* LaunchScreen.storyboard in Resources */,
+				F7F11B091EB10F6000F9E350 /* QRCodeTableViewCell.xib in Resources */,
+				F76BBBE11EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib in Resources */,
+				F76BBBFC1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib in Resources */,
+				F7F21A611E955990004824A4 /* Assets.xcassets in Resources */,
+				F76BBBE51EA73DEA00FD5759 /* BackgroundTableViewCell.xib in Resources */,
+				F7F21A5F1E955990004824A4 /* Main.storyboard in Resources */,
+				F7F11B031EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F76738B51EA373DC008E4D80 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Toucan.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NukeToucanPlugin.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/QRCode.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F7F21A521E955990004824A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76BBBF61EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift in Sources */,
+				F76BBBE41EA73DEA00FD5759 /* BackgroundTableViewCell.swift in Sources */,
+				F7B8B5301EA0BC5C005C7474 /* Extensions.swift in Sources */,
+				F76738AF1EA3612F008E4D80 /* DataManager.swift in Sources */,
+				F71045FE1EA21D7A00FEAD4A /* FileDirectoryManager.swift in Sources */,
+				F76738B31EA36C0D008E4D80 /* ArtistViewModel.swift in Sources */,
+				F76BBBF81EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift in Sources */,
+				F7B078961EAF4CAE00B537AB /* PiercingViewModel.swift in Sources */,
+				F7B078981EAF4EAF00B537AB /* DreadlocksViewModel.swift in Sources */,
+				F7B078901EAF49CE00B537AB /* TattooViewModel.swift in Sources */,
+				F7B078921EAF4B3900B537AB /* HennaViewModel.swift in Sources */,
+				F71045E81EA2049F00FEAD4A /* Piercing.swift in Sources */,
+				F7F21A761E9559CA004824A4 /* ArtWork.swift in Sources */,
+				F7B8B52E1EA0BB65005C7474 /* Palette.swift in Sources */,
+				F71045E41EA2037A00FEAD4A /* Design.swift in Sources */,
+				F71045EA1EA204B900FEAD4A /* Dreadlocks.swift in Sources */,
+				F76BBBEB1EA7697E00FD5759 /* ArtistCollectionViewCell.swift in Sources */,
+				F76BBBFB1EA8B1D500FD5759 /* ArtWorkTableViewCell.swift in Sources */,
+				F76BBBF01EA85A2800FD5759 /* ArtWorksViewController.swift in Sources */,
+				F71045E61EA2044C00FEAD4A /* Henna.swift in Sources */,
+				F76BBBF11EA85A2800FD5759 /* MainViewController.swift in Sources */,
+				F71045F51EA2128E00FEAD4A /* DBRoot.swift in Sources */,
+				F76738AD1EA35DFA008E4D80 /* Constant.swift in Sources */,
+				F7F11AFF1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift in Sources */,
+				F7F21A5A1E955990004824A4 /* AppDelegate.swift in Sources */,
+				F71045EC1EA205A000FEAD4A /* ArtWorkViewModel.swift in Sources */,
+				F76BBBE91EA75F1B00FD5759 /* MenuCollectionViewCell.swift in Sources */,
+				F71045F71EA2128E00FEAD4A /* NetworkService.swift in Sources */,
+				F7B8B5341EA0BD49005C7474 /* ProperNavigationController.swift in Sources */,
+				F76738AB1EA35C9B008E4D80 /* DeviceInfo.swift in Sources */,
+				F7F11B021EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.swift in Sources */,
+				F76BBBF41EA8695900FD5759 /* ArtWorkFilteredViewModel.swift in Sources */,
+				F7B8B53A1EA0C7ED005C7474 /* BaseView.swift in Sources */,
+				F7B8B5361EA0C169005C7474 /* BaseViewController.swift in Sources */,
+				F7B078941EAF4C1600B537AB /* DesignViewModel.swift in Sources */,
+				F71045F61EA2128E00FEAD4A /* MainManager.swift in Sources */,
+				F71045E21EA2013300FEAD4A /* Tattoo.swift in Sources */,
+				F76BBBDD1EA70D0800FD5759 /* Artist.swift in Sources */,
+				F7F11B081EB10F6000F9E350 /* QRCodeTableViewCell.swift in Sources */,
+				F71045EE1EA2094A00FEAD4A /* ModelProtocol.swift in Sources */,
+				F76BBBDF1EA73B3A00FD5759 /* BackgroundTableViewHeaderView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F7F21A5D1E955990004824A4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7F21A5E1E955990004824A4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F7F21A621E955990004824A4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F7F21A631E955990004824A4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F7F21A661E955990004824A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F7F21A671E955990004824A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F7F21A691E955990004824A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FC9QT6TC28;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "gogo-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.hlyu.gogo-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F7F21A6A1E955990004824A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = FC9QT6TC28;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "gogo-ios/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "cn.hlyu.gogo-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F7F21A511E955990004824A4 /* Build configuration list for PBXProject "gogo-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7F21A661E955990004824A4 /* Debug */,
+				F7F21A671E955990004824A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F7F21A681E955990004824A4 /* Build configuration list for PBXNativeTarget "gogo-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7F21A691E955990004824A4 /* Debug */,
+				F7F21A6A1E955990004824A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F7F21A4E1E955990004824A4 /* Project object */;
+}

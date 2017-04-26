@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C232AEE1D91A70B004CAFC8 /* Processors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C232AED1D91A70B004CAFC8 /* Processors.swift */; };
+		0C232AF21D91A7B6004CAFC8 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C232AF01D91A7B6004CAFC8 /* Nuke.framework */; };
+		0C232AF31D91A7B6004CAFC8 /* Toucan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C232AF11D91A7B6004CAFC8 /* Toucan.framework */; };
+		0C232B011D91B037004CAFC8 /* Processors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C232AED1D91A70B004CAFC8 /* Processors.swift */; };
+		0C232B061D91B232004CAFC8 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C232B041D91B232004CAFC8 /* Nuke.framework */; };
+		0C232B071D91B232004CAFC8 /* Toucan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C232B051D91B232004CAFC8 /* Toucan.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C232AD81D91A600004CAFC8 /* NukeToucanPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NukeToucanPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C232AEB1D91A69C004CAFC8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C232AED1D91A70B004CAFC8 /* Processors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Processors.swift; sourceTree = "<group>"; };
+		0C232AF01D91A7B6004CAFC8 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
+		0C232AF11D91A7B6004CAFC8 /* Toucan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Toucan.framework; path = Carthage/Build/iOS/Toucan.framework; sourceTree = "<group>"; };
+		0C232AF91D91B01B004CAFC8 /* NukeToucanPlugin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NukeToucanPlugin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C232B041D91B232004CAFC8 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/tvOS/Nuke.framework; sourceTree = "<group>"; };
+		0C232B051D91B232004CAFC8 /* Toucan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Toucan.framework; path = Carthage/Build/tvOS/Toucan.framework; sourceTree = "<group>"; };
+		0C987FF11E297DD30062EEA3 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		0C9C675C1DC601F200973FF3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0C9C675D1DC601FB00973FF3 /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
+		0C9C675E1DC601FB00973FF3 /* Nuke-Toucan-Plugin.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Nuke-Toucan-Plugin.podspec"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0C232AD41D91A600004CAFC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C232AF31D91A7B6004CAFC8 /* Toucan.framework in Frameworks */,
+				0C232AF21D91A7B6004CAFC8 /* Nuke.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C232AF51D91B01B004CAFC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C232B061D91B232004CAFC8 /* Nuke.framework in Frameworks */,
+				0C232B071D91B232004CAFC8 /* Toucan.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C232ACE1D91A600004CAFC8 = {
+			isa = PBXGroup;
+			children = (
+				0C232AE91D91A69C004CAFC8 /* Sources */,
+				0C232AEA1D91A69C004CAFC8 /* Supporing Files */,
+				0C232AEF1D91A78E004CAFC8 /* Frameworks */,
+				0C9C675B1DC601D600973FF3 /* Metadata */,
+				0C232AD91D91A600004CAFC8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0C232AD91D91A600004CAFC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C232AD81D91A600004CAFC8 /* NukeToucanPlugin.framework */,
+				0C232AF91D91B01B004CAFC8 /* NukeToucanPlugin.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0C232AE91D91A69C004CAFC8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				0C232AED1D91A70B004CAFC8 /* Processors.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		0C232AEA1D91A69C004CAFC8 /* Supporing Files */ = {
+			isa = PBXGroup;
+			children = (
+				0C232AEB1D91A69C004CAFC8 /* Info.plist */,
+			);
+			path = "Supporing Files";
+			sourceTree = "<group>";
+		};
+		0C232AEF1D91A78E004CAFC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C232B041D91B232004CAFC8 /* Nuke.framework */,
+				0C232B051D91B232004CAFC8 /* Toucan.framework */,
+				0C232AF01D91A7B6004CAFC8 /* Nuke.framework */,
+				0C232AF11D91A7B6004CAFC8 /* Toucan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0C9C675B1DC601D600973FF3 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				0C9C675C1DC601F200973FF3 /* README.md */,
+				0C9C675D1DC601FB00973FF3 /* CHANGELOG.md */,
+				0C987FF11E297DD30062EEA3 /* Cartfile */,
+				0C9C675E1DC601FB00973FF3 /* Nuke-Toucan-Plugin.podspec */,
+			);
+			name = Metadata;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0C232AD51D91A600004CAFC8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C232AF61D91B01B004CAFC8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0C232AD71D91A600004CAFC8 /* Nuke Toucan Plugin iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C232AE01D91A600004CAFC8 /* Build configuration list for PBXNativeTarget "Nuke Toucan Plugin iOS" */;
+			buildPhases = (
+				0C232AD31D91A600004CAFC8 /* Sources */,
+				0C232AD41D91A600004CAFC8 /* Frameworks */,
+				0C232AD51D91A600004CAFC8 /* Headers */,
+				0C232AD61D91A600004CAFC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Nuke Toucan Plugin iOS";
+			productName = "Nuke-Toucan-Plugin";
+			productReference = 0C232AD81D91A600004CAFC8 /* NukeToucanPlugin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		0C232AF81D91B01B004CAFC8 /* Nuke Toucan Plugin tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C232B001D91B01B004CAFC8 /* Build configuration list for PBXNativeTarget "Nuke Toucan Plugin tvOS" */;
+			buildPhases = (
+				0C232AF41D91B01B004CAFC8 /* Sources */,
+				0C232AF51D91B01B004CAFC8 /* Frameworks */,
+				0C232AF61D91B01B004CAFC8 /* Headers */,
+				0C232AF71D91B01B004CAFC8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Nuke Toucan Plugin tvOS";
+			productName = "Nuke Toucan Plugin tvOS";
+			productReference = 0C232AF91D91B01B004CAFC8 /* NukeToucanPlugin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0C232ACF1D91A600004CAFC8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Alexander Grebenyuk";
+				TargetAttributes = {
+					0C232AD71D91A600004CAFC8 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = NR8DLKJ7E6;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					0C232AF81D91B01B004CAFC8 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = NR8DLKJ7E6;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0C232AD21D91A600004CAFC8 /* Build configuration list for PBXProject "Nuke-Toucan-Plugin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0C232ACE1D91A600004CAFC8;
+			productRefGroup = 0C232AD91D91A600004CAFC8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0C232AD71D91A600004CAFC8 /* Nuke Toucan Plugin iOS */,
+				0C232AF81D91B01B004CAFC8 /* Nuke Toucan Plugin tvOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0C232AD61D91A600004CAFC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C232AF71D91B01B004CAFC8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0C232AD31D91A600004CAFC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C232AEE1D91A70B004CAFC8 /* Processors.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0C232AF41D91B01B004CAFC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C232B011D91B037004CAFC8 /* Processors.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0C232ADE1D91A600004CAFC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		0C232ADF1D91A600004CAFC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0C232AE11D91A600004CAFC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NR8DLKJ7E6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Supporing Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.kean.Nuke-Toucan-Plugin";
+				PRODUCT_NAME = NukeToucanPlugin;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0C232AE21D91A600004CAFC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NR8DLKJ7E6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Supporing Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.kean.Nuke-Toucan-Plugin";
+				PRODUCT_NAME = NukeToucanPlugin;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		0C232AFE1D91B01B004CAFC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NR8DLKJ7E6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Supporing Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.kean.Nuke-Toucan-Plugin-tvOS";
+				PRODUCT_NAME = NukeToucanPlugin;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0C232AFF1D91B01B004CAFC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = NR8DLKJ7E6;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Supporing Files/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.github.kean.Nuke-Toucan-Plugin-tvOS";
+				PRODUCT_NAME = NukeToucanPlugin;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0C232AD21D91A600004CAFC8 /* Build configuration list for PBXProject "Nuke-Toucan-Plugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C232ADE1D91A600004CAFC8 /* Debug */,
+				0C232ADF1D91A600004CAFC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C232AE01D91A600004CAFC8 /* Build configuration list for PBXNativeTarget "Nuke Toucan Plugin iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C232AE11D91A600004CAFC8 /* Debug */,
+				0C232AE21D91A600004CAFC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C232B001D91B01B004CAFC8 /* Build configuration list for PBXNativeTarget "Nuke Toucan Plugin tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C232AFE1D91B01B004CAFC8 /* Debug */,
+				0C232AFF1D91B01B004CAFC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0C232ACF1D91A600004CAFC8 /* Project object */;
+}

@@ -1,0 +1,9 @@
+github "realm/realm-cocoa" == 2.6.2
+github "Alamofire/Alamofire" == 4.4.0
+github "malcommac/SwiftDate" == 4.1.1
+
+github "kean/Nuke" == 5.1
+github "gavinbunney/Toucan" == 0.6.0
+github "kean/Nuke-Toucan-Plugin" == 0.3
+
+github "aschuch/QRCode" == 2.0
