@@ -66,6 +66,7 @@ extension UINavigationBar {
     // Override this method in UIViewController derived class to handle 'Back' button click
     @objc optional func navigationShouldPopOnBackButton() -> Bool
 }
+
 extension UINavigationController: UINavigationBarDelegate {
     
     public func navigationBar(_ navigationBar: UINavigationBar,
@@ -103,15 +104,86 @@ extension UINavigationController: UINavigationBarDelegate {
 }
 
 extension Array where Element: AnyObject {
+    
     mutating func remove(object: Element) {
         if let index = index(where: { $0 === object }) {
             remove(at: index)
         }
     }
+    
 }
 
 extension String {
+    
     func replace(target: String, withString: String) -> String {
         return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
     }
+    
 }
+
+extension UIFont {
+    
+    class func icomoon(ofSize: CGFloat) -> UIFont? {
+        return UIFont(name: "icomoon", size: ofSize)
+    }
+    
+    class func iconfont(ofSize: CGFloat) -> UIFont? {
+        return UIFont(name: "iconfont", size: ofSize)
+    }
+    
+}
+
+extension UIImage {
+    
+    convenience init?(text: Iconfont, fontSize: CGFloat,
+                      imageSize: CGSize = CGSize.zero, imageColor: UIColor = UIColor.black) {
+        guard let iconfont = UIFont.iconfont(ofSize: fontSize) else {
+            self.init()
+            return nil
+        }
+        var imageRect = CGRect(origin: CGPoint.zero, size: imageSize)
+        if __CGSizeEqualToSize(imageSize, CGSize.zero) {
+            imageRect = CGRect(origin: CGPoint.zero,
+                               size: text.rawValue.size(attributes: [NSFontAttributeName: iconfont]))
+        }
+        UIGraphicsBeginImageContextWithOptions(imageRect.size, false, UIScreen.main.scale)
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = NSTextAlignment.center
+        text.rawValue.draw(in: imageRect, withAttributes: [NSFontAttributeName : iconfont,
+                                                           NSParagraphStyleAttributeName: paragraphStyle,
+                                                           NSForegroundColorAttributeName: imageColor])
+        guard let cgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
+            self.init()
+            return nil
+        }
+        self.init(cgImage: cgImage)
+    }
+    
+    static func compress(image: UIImage,
+                         maxFileSize: Int, // kb
+        compression: CGFloat = 1.0,
+        maxCompression: CGFloat = 0.4) -> Data? {
+        
+        if let data = UIImageJPEGRepresentation(image, compression) {
+            let bcf = ByteCountFormatter()
+            bcf.allowedUnits = [.useKB] // optional: restricts the units to KB only
+            bcf.countStyle = .file
+            let string = bcf.string(fromByteCount: Int64(data.count))
+            #if DEBUG
+                print("Data size is: \(string)")
+            #endif
+            if data.count > (maxFileSize * 1024) && (compression > maxCompression) {
+                let newCompression = compression - 0.1
+                let compressedData = self.compress(image: image, maxFileSize: maxFileSize, compression: newCompression, maxCompression: maxCompression)
+                return compressedData
+            }
+            return data
+        }
+        return nil
+    }
+
+}
+

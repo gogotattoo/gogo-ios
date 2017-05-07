@@ -122,7 +122,7 @@ extension HennaViewModel: Copyable {
 extension HennaViewModel: Realmable {
     
     func syncViewModelToModel() {
-        self.henna = Henna() // TODO: May cause problems, check it out
+        self.henna = Henna()
         
         self.henna.identifier = self.identifier
         self.henna.link = self.link

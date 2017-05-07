@@ -123,7 +123,7 @@ extension TattooViewModel: Copyable {
 extension TattooViewModel: Realmable {
     
     func syncViewModelToModel() {
-        self.tattoo = Tattoo() // TODO: May cause problems, check it out
+        self.tattoo = Tattoo()
         
         self.tattoo.identifier = self.identifier
         self.tattoo.link = self.link

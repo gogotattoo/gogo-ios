@@ -9,7 +9,9 @@
 import Foundation
 import UIKit
 import SwiftDate
-import AlamofireImage
+import Nuke
+import Toucan
+import NukeToucanPlugin
 
 public enum ArtistType: String {
     
@@ -88,8 +90,7 @@ final class MainManager {
             if result != nil {
                 self.dataManager.dataQueue.async(flags: .barrier, execute: {
                     self.artWorkViewModels = result!
-                    
-                    // TODO: optimize, ugly
+                    // TODO: optimize
                     switch self.currentArtistType {
                     case .tattoo:
                         var artWorkViewModels = self.artWorkViewModels as! Array<TattooViewModel>
@@ -294,7 +295,7 @@ final class MainManager {
                                 }
         })
     }
-
+    
     func enterArtWorkDetail(selectedArtWork: AnyObject) {
         self.selectedArtWork = selectedArtWork
     }
@@ -302,5 +303,19 @@ final class MainManager {
     func exitArtWorkDetail() {
         
     }
+    
+    func cacheImage(url: URL, image: UIImage) {
+//        Cache.shared.costLimit = 1024 * 1024 * 100
+//        Cache.shared.countLimit = 100
+        let request = Request(url: url)
+        Cache.shared[request] = image
+    }
+    
+    func loadCacheImage(url: URL) -> UIImage? {
+        let request = Request(url: url)
+        let image = Cache.shared[request]
+        return image
+    }
+    
     
 }

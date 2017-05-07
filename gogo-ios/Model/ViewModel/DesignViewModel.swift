@@ -123,7 +123,7 @@ extension DesignViewModel: Copyable {
 extension DesignViewModel: Realmable {
     
     func syncViewModelToModel() {
-        self.design = Design() // TODO: May cause problems, check it out
+        self.design = Design()
         
         self.design.identifier = self.identifier
         self.design.link = self.link

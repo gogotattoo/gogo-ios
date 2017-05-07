@@ -122,7 +122,7 @@ extension DreadlocksViewModel: Copyable {
 extension DreadlocksViewModel: Realmable {
     
     func syncViewModelToModel() {
-        self.dreadlocks = Dreadlocks() // TODO: May cause problems, check it out
+        self.dreadlocks = Dreadlocks()
         
         self.dreadlocks.identifier = self.identifier
         self.dreadlocks.link = self.link

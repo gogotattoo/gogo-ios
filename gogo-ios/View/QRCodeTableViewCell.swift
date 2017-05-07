@@ -27,8 +27,11 @@ class QRCodeTableViewCell: UITableViewCell {
         self.urlLabel.text = urlString
         let qrCode = QRCode(urlString)
         self.QRImageView.image = qrCode?.image
-        MainManager.sharedInstance.artWorkDetailCellHeightArray[index] = 380
         
+        if let url = URL(string: urlString), let image = qrCode?.image {
+            MainManager.sharedInstance.cacheImage(url: url, image: image)
+            MainManager.sharedInstance.artWorkDetailCellHeightArray[index] = 380
+        }
     }
     
 }

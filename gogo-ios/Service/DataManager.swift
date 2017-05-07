@@ -131,18 +131,6 @@ class DataManager {
                                 strongSelf.parseDataToArtworks(result, artistType: artistType)
                                 completion(strongSelf.artWorkViewModels, nil)
                             }
-                            // db insert
-//                            strongSelf.insertArtWorks(artistType: artistType,
-//                                                      artistLink: artistLink,
-//                                                      artWorkViewModels: strongSelf.artWorkViewModels!,
-//                                                      completion: {
-//                                [weak strongSelf] (result, error) -> Void in
-//                                guard let strongSelf = strongSelf else { return }
-//                                strongSelf.dataQueue.async {
-//                                    // data from server, call back after operation, do not care about success
-//                                    completion(strongSelf.artWorkViewModels, nil, artistType)
-//                                }
-//                            })
                         }
                     }
                 }
@@ -246,12 +234,12 @@ class DataManager {
             (result, error) -> Void in
             if error != nil {
                 #if DEBUG
-//                    print("insertArtWorks failed!!!")
+                    print("insertArtWorks failed!!!")
                 #endif
             }
             if result == true {
                 #if DEBUG
-//                    print("insertArtWorks done!!!")
+                    print("insertArtWorks done!!!")
                 #endif
             }
             completion(result, error)

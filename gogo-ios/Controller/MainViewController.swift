@@ -15,6 +15,7 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var navigationBarBackgroundView: UIView!
     @IBOutlet weak var backgroundTableView: UITableView! // vertical
     @IBOutlet weak var artistCollectionVIew: UICollectionView!
+    @IBOutlet weak var uploadButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,10 @@ class MainViewController: BaseViewController {
         self.navigationBarBackgroundView.backgroundColor = Palette.gogoRed
         let nib = UINib(nibName: "BackgroundTableViewCell", bundle: nil)
         self.backgroundTableView.register(nib, forCellReuseIdentifier: "BackgroundTableViewCell")
+        self.uploadButton.titleLabel!.font = UIFont.icomoon(ofSize: 24)
+        self.uploadButton.backgroundColor = Palette.gogoRed
+        self.uploadButton.setTitleColor(UIColor.white, for: .normal)
+        self.uploadButton.setTitle(Icomoon.upload.rawValue, for: .normal)
     }
     
     func basicData() {
@@ -57,7 +62,6 @@ class MainViewController: BaseViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +74,21 @@ class MainViewController: BaseViewController {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.becomeTransparent(false, tintColor: view.tintColor,
                                                               titleColor: UIColor.black)
+    }
+    
+    @IBAction func uploadAction(_ sender: Any) {
+        let alertController: UIAlertController = UIAlertController(title: "Upload is coming",
+                                                                   message: "",
+                                                                   preferredStyle: .alert)
+        let alertAction: UIAlertAction = UIAlertAction(title: "OK", style: .destructive) { (alertAction) in
+            //
+        }
+        alertController.addAction(alertAction)
+        if let rootVC = UIApplication.shared.keyWindow?.rootViewController {
+            rootVC.present(alertController, animated: true, completion: nil)
+        }
+        // TODO: upload
+//        self.performSegue(withIdentifier: "Main_Upload", sender: false)
     }
 
 }

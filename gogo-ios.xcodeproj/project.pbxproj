@@ -21,6 +21,17 @@
 		F71045F71EA2128E00FEAD4A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045F21EA2128E00FEAD4A /* NetworkService.swift */; };
 		F71045FA1EA2158100FEAD4A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71045F91EA2158100FEAD4A /* Alamofire.framework */; };
 		F71045FE1EA21D7A00FEAD4A /* FileDirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71045FD1EA21D7A00FEAD4A /* FileDirectoryManager.swift */; };
+		F71195B31EBC720600712FF5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F71195B21EBC720600712FF5 /* libz.tbd */; };
+		F71195B51EBC721100712FF5 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F71195B41EBC721100712FF5 /* libsqlite3.0.tbd */; };
+		F71195B71EBC721D00712FF5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F71195B61EBC721D00712FF5 /* libc++.tbd */; };
+		F71195B91EBC722600712FF5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71195B81EBC722600712FF5 /* SystemConfiguration.framework */; };
+		F71195BB1EBC722F00712FF5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71195BA1EBC722F00712FF5 /* CoreTelephony.framework */; };
+		F745A23F1EBA122200A5CBAA /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F745A23E1EBA122200A5CBAA /* icomoon.ttf */; };
+		F745A2411EBA14DD00A5CBAA /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F745A2401EBA14DD00A5CBAA /* Enumeration.swift */; };
+		F745A2491EBC5A1D00A5CBAA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F745A2441EBC5A1D00A5CBAA /* README.txt */; };
+		F745A24B1EBC5A3E00A5CBAA /* PhotoPickerActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F745A24A1EBC5A3E00A5CBAA /* PhotoPickerActionSheet.swift */; };
+		F745A24E1EBC5E5C00A5CBAA /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F745A24D1EBC5E5C00A5CBAA /* ShareManager.swift */; };
+		F7524FBA1EB5CE480055BF27 /* UploadArtWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7524FB91EB5CE480055BF27 /* UploadArtWorksViewController.swift */; };
 		F76738AB1EA35C9B008E4D80 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76738AA1EA35C9B008E4D80 /* DeviceInfo.swift */; };
 		F76738AD1EA35DFA008E4D80 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76738AC1EA35DFA008E4D80 /* Constant.swift */; };
 		F76738AF1EA3612F008E4D80 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76738AE1EA3612F008E4D80 /* DataManager.swift */; };
@@ -33,7 +44,6 @@
 		F76BBBE51EA73DEA00FD5759 /* BackgroundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76BBBE31EA73DEA00FD5759 /* BackgroundTableViewCell.xib */; };
 		F76BBBE91EA75F1B00FD5759 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBE81EA75F1B00FD5759 /* MenuCollectionViewCell.swift */; };
 		F76BBBEB1EA7697E00FD5759 /* ArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBEA1EA7697E00FD5759 /* ArtistCollectionViewCell.swift */; };
-		F76BBBED1EA76DDB00FD5759 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76BBBEC1EA76DDB00FD5759 /* AlamofireImage.framework */; };
 		F76BBBF01EA85A2800FD5759 /* ArtWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBEE1EA85A2800FD5759 /* ArtWorksViewController.swift */; };
 		F76BBBF11EA85A2800FD5759 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBEF1EA85A2800FD5759 /* MainViewController.swift */; };
 		F76BBBF41EA8695900FD5759 /* ArtWorkFilteredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBF31EA8695900FD5759 /* ArtWorkFilteredViewModel.swift */; };
@@ -42,6 +52,13 @@
 		F76BBBFB1EA8B1D500FD5759 /* ArtWorkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBF91EA8B1D500FD5759 /* ArtWorkTableViewCell.swift */; };
 		F76BBBFC1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76BBBFA1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib */; };
 		F76BBC001EA9AD4A00FD5759 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76BBBFF1EA9AD4A00FD5759 /* Nuke.framework */; };
+		F783087E1EBF08E000DBAA6B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F745A2431EBC5A1D00A5CBAA /* libWeChatSDK.a */; };
+		F78308851EBF2DA200DBAA6B /* DPArrowMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78308801EBF2DA200DBAA6B /* DPArrowMenu.swift */; };
+		F78308861EBF2DA200DBAA6B /* DPArrowMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78308811EBF2DA200DBAA6B /* DPArrowMenuView.swift */; };
+		F78308871EBF2DA200DBAA6B /* DPArrowMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78308821EBF2DA200DBAA6B /* DPArrowMenuViewModel.swift */; };
+		F78308881EBF2DA200DBAA6B /* DPPopOverMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78308831EBF2DA200DBAA6B /* DPPopOverMenuCell.swift */; };
+		F78308891EBF2DA200DBAA6B /* DPPopOverMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F78308841EBF2DA200DBAA6B /* DPPopOverMenuCell.xib */; };
+		F783088B1EBF7ABF00DBAA6B /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F783088A1EBF7ABF00DBAA6B /* iconfont.ttf */; };
 		F7B078901EAF49CE00B537AB /* TattooViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B0788F1EAF49CE00B537AB /* TattooViewModel.swift */; };
 		F7B078921EAF4B3900B537AB /* HennaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B078911EAF4B3900B537AB /* HennaViewModel.swift */; };
 		F7B078941EAF4C1600B537AB /* DesignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B078931EAF4C1600B537AB /* DesignViewModel.swift */; };
@@ -82,6 +99,22 @@
 		F71045F21EA2128E00FEAD4A /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		F71045F91EA2158100FEAD4A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		F71045FD1EA21D7A00FEAD4A /* FileDirectoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileDirectoryManager.swift; sourceTree = "<group>"; };
+		F71195B21EBC720600712FF5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		F71195B41EBC721100712FF5 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		F71195B61EBC721D00712FF5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		F71195B81EBC722600712FF5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F71195BA1EBC722F00712FF5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F745A23E1EBA122200A5CBAA /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
+		F745A2401EBA14DD00A5CBAA /* Enumeration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
+		F745A2431EBC5A1D00A5CBAA /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		F745A2441EBC5A1D00A5CBAA /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		F745A2451EBC5A1D00A5CBAA /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		F745A2461EBC5A1D00A5CBAA /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		F745A2471EBC5A1D00A5CBAA /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		F745A24A1EBC5A3E00A5CBAA /* PhotoPickerActionSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerActionSheet.swift; sourceTree = "<group>"; };
+		F745A24C1EBC5C6B00A5CBAA /* gogo-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "gogo-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		F745A24D1EBC5E5C00A5CBAA /* ShareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
+		F7524FB91EB5CE480055BF27 /* UploadArtWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadArtWorksViewController.swift; sourceTree = "<group>"; };
 		F76738AA1EA35C9B008E4D80 /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		F76738AC1EA35DFA008E4D80 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F76738AE1EA3612F008E4D80 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
@@ -104,6 +137,12 @@
 		F76BBBFA1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtWorkTableViewCell.xib; sourceTree = "<group>"; };
 		F76BBBFD1EA91AF300FD5759 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		F76BBBFF1EA9AD4A00FD5759 /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
+		F78308801EBF2DA200DBAA6B /* DPArrowMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPArrowMenu.swift; sourceTree = "<group>"; };
+		F78308811EBF2DA200DBAA6B /* DPArrowMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPArrowMenuView.swift; sourceTree = "<group>"; };
+		F78308821EBF2DA200DBAA6B /* DPArrowMenuViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPArrowMenuViewModel.swift; sourceTree = "<group>"; };
+		F78308831EBF2DA200DBAA6B /* DPPopOverMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPPopOverMenuCell.swift; sourceTree = "<group>"; };
+		F78308841EBF2DA200DBAA6B /* DPPopOverMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPPopOverMenuCell.xib; sourceTree = "<group>"; };
+		F783088A1EBF7ABF00DBAA6B /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
 		F7B0788F1EAF49CE00B537AB /* TattooViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TattooViewModel.swift; sourceTree = "<group>"; };
 		F7B078911EAF4B3900B537AB /* HennaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HennaViewModel.swift; sourceTree = "<group>"; };
 		F7B078931EAF4C1600B537AB /* DesignViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignViewModel.swift; sourceTree = "<group>"; };
@@ -136,11 +175,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F783087E1EBF08E000DBAA6B /* libWeChatSDK.a in Frameworks */,
+				F71195BB1EBC722F00712FF5 /* CoreTelephony.framework in Frameworks */,
+				F71195B91EBC722600712FF5 /* SystemConfiguration.framework in Frameworks */,
+				F71195B71EBC721D00712FF5 /* libc++.tbd in Frameworks */,
+				F71195B51EBC721100712FF5 /* libsqlite3.0.tbd in Frameworks */,
+				F71195B31EBC720600712FF5 /* libz.tbd in Frameworks */,
 				F7F11B051EB10EFE00F9E350 /* QRCode.framework in Frameworks */,
 				F7F11AFC1EB06CB900F9E350 /* NukeToucanPlugin.framework in Frameworks */,
 				F7F11AFD1EB06CB900F9E350 /* Toucan.framework in Frameworks */,
 				F76BBC001EA9AD4A00FD5759 /* Nuke.framework in Frameworks */,
-				F76BBBED1EA76DDB00FD5759 /* AlamofireImage.framework in Frameworks */,
 				F76738B41EA37143008E4D80 /* SwiftDate.framework in Frameworks */,
 				F71045FA1EA2158100FEAD4A /* Alamofire.framework in Frameworks */,
 				F71045D51EA1FE4F00FEAD4A /* Realm.framework in Frameworks */,
@@ -154,6 +198,11 @@
 		F71045D21EA1FE4F00FEAD4A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F71195BA1EBC722F00712FF5 /* CoreTelephony.framework */,
+				F71195B81EBC722600712FF5 /* SystemConfiguration.framework */,
+				F71195B61EBC721D00712FF5 /* libc++.tbd */,
+				F71195B41EBC721100712FF5 /* libsqlite3.0.tbd */,
+				F71195B21EBC720600712FF5 /* libz.tbd */,
 				F7F11B041EB10EFE00F9E350 /* QRCode.framework */,
 				F7F11AFA1EB06CB900F9E350 /* NukeToucanPlugin.framework */,
 				F7F11AFB1EB06CB900F9E350 /* Toucan.framework */,
@@ -166,6 +215,18 @@
 				F71045D41EA1FE4F00FEAD4A /* RealmSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F745A2421EBC5A1D00A5CBAA /* WechatSDK1.7.7 */ = {
+			isa = PBXGroup;
+			children = (
+				F745A2431EBC5A1D00A5CBAA /* libWeChatSDK.a */,
+				F745A2441EBC5A1D00A5CBAA /* README.txt */,
+				F745A2451EBC5A1D00A5CBAA /* WechatAuthSDK.h */,
+				F745A2461EBC5A1D00A5CBAA /* WXApi.h */,
+				F745A2471EBC5A1D00A5CBAA /* WXApiObject.h */,
+			);
+			path = WechatSDK1.7.7;
 			sourceTree = "<group>";
 		};
 		F76738A91EA35C91008E4D80 /* Config */ = {
@@ -184,6 +245,18 @@
 				F76BBBF71EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift */,
 			);
 			path = FilteredViewModel;
+			sourceTree = "<group>";
+		};
+		F783087F1EBF2DA200DBAA6B /* DPArrowMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F78308801EBF2DA200DBAA6B /* DPArrowMenu.swift */,
+				F78308811EBF2DA200DBAA6B /* DPArrowMenuView.swift */,
+				F78308821EBF2DA200DBAA6B /* DPArrowMenuViewModel.swift */,
+				F78308831EBF2DA200DBAA6B /* DPPopOverMenuCell.swift */,
+				F78308841EBF2DA200DBAA6B /* DPPopOverMenuCell.xib */,
+			);
+			path = DPArrowMenu;
 			sourceTree = "<group>";
 		};
 		F7B8B5321EA0BD3A005C7474 /* Base */ = {
@@ -227,10 +300,13 @@
 				F7F21A731E9559CA004824A4 /* Utils */,
 				F7F21A741E9559CA004824A4 /* Vendors */,
 				F7F21A591E955990004824A4 /* AppDelegate.swift */,
+				F745A24C1EBC5C6B00A5CBAA /* gogo-ios-Bridging-Header.h */,
 				F7F21A5D1E955990004824A4 /* Main.storyboard */,
 				F7F21A601E955990004824A4 /* Assets.xcassets */,
 				F7F21A621E955990004824A4 /* LaunchScreen.storyboard */,
 				F7F21A651E955990004824A4 /* Info.plist */,
+				F745A23E1EBA122200A5CBAA /* icomoon.ttf */,
+				F783088A1EBF7ABF00DBAA6B /* iconfont.ttf */,
 			);
 			path = "gogo-ios";
 			sourceTree = "<group>";
@@ -245,6 +321,8 @@
 		F7F21A6C1E9559CA004824A4 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F783087F1EBF2DA200DBAA6B /* DPArrowMenu */,
+				F745A24A1EBC5A3E00A5CBAA /* PhotoPickerActionSheet.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -255,6 +333,7 @@
 				F76BBBEF1EA85A2800FD5759 /* MainViewController.swift */,
 				F76BBBEE1EA85A2800FD5759 /* ArtWorksViewController.swift */,
 				F7F11AFE1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift */,
+				F7524FB91EB5CE480055BF27 /* UploadArtWorksViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -305,6 +384,8 @@
 				F76738AE1EA3612F008E4D80 /* DataManager.swift */,
 				F71045F01EA2128E00FEAD4A /* DBRoot.swift */,
 				F71045F21EA2128E00FEAD4A /* NetworkService.swift */,
+				F745A2401EBA14DD00A5CBAA /* Enumeration.swift */,
+				F745A24D1EBC5E5C00A5CBAA /* ShareManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -322,6 +403,7 @@
 		F7F21A741E9559CA004824A4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				F745A2421EBC5A1D00A5CBAA /* WechatSDK1.7.7 */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -410,11 +492,15 @@
 				F7F21A641E955990004824A4 /* LaunchScreen.storyboard in Resources */,
 				F7F11B091EB10F6000F9E350 /* QRCodeTableViewCell.xib in Resources */,
 				F76BBBE11EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib in Resources */,
+				F745A23F1EBA122200A5CBAA /* icomoon.ttf in Resources */,
+				F745A2491EBC5A1D00A5CBAA /* README.txt in Resources */,
 				F76BBBFC1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib in Resources */,
 				F7F21A611E955990004824A4 /* Assets.xcassets in Resources */,
 				F76BBBE51EA73DEA00FD5759 /* BackgroundTableViewCell.xib in Resources */,
+				F783088B1EBF7ABF00DBAA6B /* iconfont.ttf in Resources */,
 				F7F21A5F1E955990004824A4 /* Main.storyboard in Resources */,
 				F7F11B031EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.xib in Resources */,
+				F78308891EBF2DA200DBAA6B /* DPPopOverMenuCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +517,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftDate.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Toucan.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/NukeToucanPlugin.framework",
@@ -450,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7524FBA1EB5CE480055BF27 /* UploadArtWorksViewController.swift in Sources */,
 				F76BBBF61EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift in Sources */,
 				F76BBBE41EA73DEA00FD5759 /* BackgroundTableViewCell.swift in Sources */,
 				F7B8B5301EA0BC5C005C7474 /* Extensions.swift in Sources */,
@@ -460,6 +546,7 @@
 				F7B078961EAF4CAE00B537AB /* PiercingViewModel.swift in Sources */,
 				F7B078981EAF4EAF00B537AB /* DreadlocksViewModel.swift in Sources */,
 				F7B078901EAF49CE00B537AB /* TattooViewModel.swift in Sources */,
+				F745A2411EBA14DD00A5CBAA /* Enumeration.swift in Sources */,
 				F7B078921EAF4B3900B537AB /* HennaViewModel.swift in Sources */,
 				F71045E81EA2049F00FEAD4A /* Piercing.swift in Sources */,
 				F7F21A761E9559CA004824A4 /* ArtWork.swift in Sources */,
@@ -473,16 +560,22 @@
 				F76BBBF11EA85A2800FD5759 /* MainViewController.swift in Sources */,
 				F71045F51EA2128E00FEAD4A /* DBRoot.swift in Sources */,
 				F76738AD1EA35DFA008E4D80 /* Constant.swift in Sources */,
+				F745A24E1EBC5E5C00A5CBAA /* ShareManager.swift in Sources */,
 				F7F11AFF1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift in Sources */,
+				F78308881EBF2DA200DBAA6B /* DPPopOverMenuCell.swift in Sources */,
 				F7F21A5A1E955990004824A4 /* AppDelegate.swift in Sources */,
 				F71045EC1EA205A000FEAD4A /* ArtWorkViewModel.swift in Sources */,
 				F76BBBE91EA75F1B00FD5759 /* MenuCollectionViewCell.swift in Sources */,
 				F71045F71EA2128E00FEAD4A /* NetworkService.swift in Sources */,
+				F78308861EBF2DA200DBAA6B /* DPArrowMenuView.swift in Sources */,
 				F7B8B5341EA0BD49005C7474 /* ProperNavigationController.swift in Sources */,
 				F76738AB1EA35C9B008E4D80 /* DeviceInfo.swift in Sources */,
 				F7F11B021EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.swift in Sources */,
 				F76BBBF41EA8695900FD5759 /* ArtWorkFilteredViewModel.swift in Sources */,
 				F7B8B53A1EA0C7ED005C7474 /* BaseView.swift in Sources */,
+				F78308871EBF2DA200DBAA6B /* DPArrowMenuViewModel.swift in Sources */,
+				F78308851EBF2DA200DBAA6B /* DPArrowMenu.swift in Sources */,
+				F745A24B1EBC5A3E00A5CBAA /* PhotoPickerActionSheet.swift in Sources */,
 				F7B8B5361EA0C169005C7474 /* BaseViewController.swift in Sources */,
 				F7B078941EAF4C1600B537AB /* DesignViewModel.swift in Sources */,
 				F71045F61EA2128E00FEAD4A /* MainManager.swift in Sources */,
@@ -557,7 +650,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -601,7 +694,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -620,8 +713,14 @@
 				);
 				INFOPLIST_FILE = "gogo-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/gogo-ios/Vendors/WechatSDK1.7.7",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.hlyu.gogo-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "gogo-ios/gogo-ios-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -637,8 +736,14 @@
 				);
 				INFOPLIST_FILE = "gogo-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/gogo-ios/Vendors/WechatSDK1.7.7",
+				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.hlyu.gogo-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "gogo-ios/gogo-ios-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

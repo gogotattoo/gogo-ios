@@ -122,7 +122,7 @@ extension PiercingViewModel: Copyable {
 extension PiercingViewModel: Realmable {
     
     func syncViewModelToModel() {
-        self.piercing = Piercing() // TODO: May cause problems, check it out
+        self.piercing = Piercing()
         
         self.piercing.identifier = self.identifier
         self.piercing.link = self.link

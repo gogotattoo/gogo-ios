@@ -72,7 +72,6 @@ extension ArtWorkListCollectionViewCell: UITableViewDataSource {
 extension ArtWorkListCollectionViewCell: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("didSelectRowAt")
         let artWorkFilteredViewModel: ArtWorkFilteredViewModel = self.artWorkFilteredViewModels[indexPath.section]
         let artWorkViewModel: AnyObject = artWorkFilteredViewModel.artWorkViewModels[indexPath.row]
         MainManager.sharedInstance.enterArtWorkDetail(selectedArtWork: artWorkViewModel)
@@ -126,22 +125,5 @@ extension ArtWorkListCollectionViewCell: UITableViewDelegate {
         }
         return 320
     }
-
-}
-
-extension ArtWorkListCollectionViewCell: UIScrollViewDelegate {
-    
-    // decelerate is true if it will continue moving afterwards
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        if !decelerate {
-//            self.contentTableView.beginUpdates()
-//            self.contentTableView.endUpdates()
-//        }
-//    }
-//
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        self.contentTableView.beginUpdates()
-//        self.contentTableView.endUpdates()
-//    }
 
 }

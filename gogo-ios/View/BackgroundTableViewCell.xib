@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,8 +27,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="beta version-0.0.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNA-Zd-8jl">
-                        <rect key="frame" x="8" y="310.5" width="134" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="alpha version-0.0.1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rNA-Zd-8jl">
+                        <rect key="frame" x="8" y="302.5" width="134" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="QY9-P7-p8h"/>
                             <constraint firstAttribute="width" constant="134" id="WTg-OZ-bkA"/>
@@ -42,7 +41,7 @@
                 <constraints>
                     <constraint firstItem="t8D-Wx-UIe" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="4Vj-Ix-Brs"/>
                     <constraint firstItem="t8D-Wx-UIe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6EK-mr-PIH"/>
-                    <constraint firstAttribute="bottom" secondItem="rNA-Zd-8jl" secondAttribute="bottom" constant="8" id="Ls7-6D-wfA"/>
+                    <constraint firstAttribute="bottom" secondItem="rNA-Zd-8jl" secondAttribute="bottom" constant="16" id="Ls7-6D-wfA"/>
                     <constraint firstItem="rNA-Zd-8jl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="vBC-h2-zxJ"/>
                 </constraints>
             </tableViewCellContentView>

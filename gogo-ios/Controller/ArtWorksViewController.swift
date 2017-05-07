@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArtWorksViewController: UIViewController {
+class ArtWorksViewController: BaseViewController {
     
     @IBOutlet weak var menuCollectionView: UICollectionView! {
         didSet{
@@ -258,9 +258,9 @@ extension ArtWorksViewController: UICollectionViewDelegateFlowLayout {
             }
             return CGSize(width: 88, height: 44)
         }
-        
         if collectionView == self.artWorkListCollectionView {
-            return CGSize(width: 375, height: 559)
+            return CGSize(width: UIScreen.main.bounds.size.width,
+                          height: (UIScreen.main.bounds.size.height - (44 + 64)))
         }
         return CGSize.zero
     }
@@ -270,29 +270,17 @@ extension ArtWorksViewController: UICollectionViewDelegateFlowLayout {
 extension ArtWorksViewController: UIScrollViewDelegate {
     
     // decelerate is true if it will continue moving afterwards
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        if !decelerate {
-//            if scrollView == self.artWorkListCollectionView {
-//                let visibleItems = self.artWorkListCollectionView.indexPathsForVisibleItems
-//                let currentItem: IndexPath = visibleItems.first!
-//                let nextItem = IndexPath(item: currentItem.row, section: currentItem.section)
-//                self.artWorkListCollectionView.scrollToItem(at: nextItem as IndexPath,
-//                                                            at: UICollectionViewScrollPosition.right,
-//                                                            animated: true)
-//            }
-//        }
-//    }
-//    
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        if scrollView == self.artWorkListCollectionView {
-//            let visibleItems = self.artWorkListCollectionView.indexPathsForVisibleItems
-//            let currentItem: IndexPath = visibleItems.first!
-//            let nextItem = IndexPath(item: currentItem.row, section: currentItem.section)
-//            self.artWorkListCollectionView.scrollToItem(at: nextItem as IndexPath,
-//                                                        at: UICollectionViewScrollPosition.right,
-//                                                        animated: true)
-//        }
-//    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == self.artWorkListCollectionView {
+            
+        }
+    }
     
 }
 
