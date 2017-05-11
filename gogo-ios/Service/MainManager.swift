@@ -12,9 +12,11 @@ import SwiftDate
 import Nuke
 import Toucan
 import NukeToucanPlugin
+import Alamofire
 
 public enum ArtistType: String {
     
+    case artwork = "artwork"
     case tattoo = "tattoo"
     case henna = "henna"
     case piercing = "piercing"
@@ -44,7 +46,21 @@ final class MainManager {
     var artWorkDetailCellHeightArray: [CGFloat] = []
     // TODO: need realm image object, with image hash & computed present height
 
-    /// Computed Properties
+    // upload
+    var uploadArtistName: String = ""
+    var uploadArtistType: ArtistType = ArtistType.tattoo
+    var uploadArtWorkViewModel: ArtWorkViewModel?
+    
+    // MARK: Setter
+    func setCurrentArtistType(artistType: ArtistType) {
+        self.currentArtistType = artistType
+    }
+    
+    func getCurrentArtistType() -> ArtistType {
+        return self.currentArtistType
+    }
+    
+    // MARK: Computed Properties
     var currentArtWorkFilteredListViewModel: ArtWorkFilteredListViewModel {
         for artWorkFilteredListViewModel: ArtWorkFilteredListViewModel in self.allArtWorkFilteredListViewModels {
             if artWorkFilteredListViewModel.artistType == getCurrentArtistType() {
@@ -64,6 +80,7 @@ final class MainManager {
         return 0
     }
     
+    // MARK: Request
     func requestArtistList(completion: @escaping (_ result: Array<ArtistViewModel>?, _ error: NSError?)->()?) {
         self.dataManager.requestArtistList() {
             (result, error) -> Void in
@@ -78,8 +95,9 @@ final class MainManager {
         }
     }
     
-    func requestArtWorkList(_ artist: String,
-                             completion: @escaping (_ result: Array<ArtWorkFilteredListViewModel>?, _ error: NSError?)->()?) {
+    func requestArtWorkList(_ artist: String, completion:
+        @escaping (_ result: Array<ArtWorkFilteredListViewModel>?,
+        _ error: NSError?)->()?) {
         self.dataManager.requestArtWorkList(artist, artistType: self.currentArtistType,
                                             artistLink: self.currentArtistViewModel!.link) {
             (result, error) -> Void in
@@ -88,10 +106,13 @@ final class MainManager {
                 return
             }
             if result != nil {
+                // section title & sorting
                 self.dataManager.dataQueue.async(flags: .barrier, execute: {
                     self.artWorkViewModels = result!
                     // TODO: optimize
                     switch self.currentArtistType {
+                    case .artwork:
+                        break
                     case .tattoo:
                         var artWorkViewModels = self.artWorkViewModels as! Array<TattooViewModel>
                         // generate FilteredViewModels in art work
@@ -252,15 +273,34 @@ final class MainManager {
         }
     }
     
-    // MARK: Setter
-    func setCurrentArtistType(artistType: ArtistType) {
-        self.currentArtistType = artistType
+    func requestInReviewArtWorks(_ artist: String, artistType: ArtistType, completion:
+        @escaping (_ result: Array<AnyObject>?, _ error: NSError?)->()?) {
+        self.dataManager.requestWipArtWorkList(artist, artistType: artistType) {
+            (result, error) -> Void in
+            if error != nil {
+                completion(nil, error)
+                return
+            }
+            if result != nil {
+                self.artWorkViewModels = result
+                completion(result, nil)
+            }
+        }
     }
     
-    func getCurrentArtistType() -> ArtistType {
-        return self.currentArtistType
+    func requestIfUploadImageSucceed(path: String, params: Parameters,
+                                     completion: @escaping (_ result: AnyObject?, _ error: NSError?)->()?) {
+        self.dataManager.requestIfUploadImageSucceed(path: path, params: params) {
+            (result, error) -> Void in
+            if error != nil {
+                completion(nil, error)
+            }
+            if result != nil {
+                completion(result, nil)
+            }
+        }
     }
-        
+    
     // MARK: Memmory Life Cycle
     func enterArtWorks(artistViewModelIndex: Int) {
         

@@ -85,6 +85,8 @@ extension ArtWorkListCollectionViewCell: UITableViewDelegate {
             
             // TODO: optimize
             switch MainManager.sharedInstance.currentArtistType {
+            case .artwork:
+                break
             case .tattoo:
                 if let artWorkViewModel = artWorkViewModel as? TattooViewModel {
                     if artWorkViewModel.cellHeight != 0 {

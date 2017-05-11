@@ -13,4 +13,7 @@
 #import "WXApiObject.h"
 #import "WechatAuthSDK.h"
 
+#import "ASJTag.h"
+#import "ASJTagsView.h"
+
 #endif /* gogo_ios_Bridging_Header_h */

@@ -7,3 +7,4 @@ github "gavinbunney/Toucan" == 0.6.0
 github "kean/Nuke-Toucan-Plugin" == 0.3
 
 github "aschuch/QRCode" == 2.0
+github "ninjaprox/NVActivityIndicatorView" == 3.6.0

@@ -33,21 +33,11 @@ class ArtWorkDetailViewController: BaseViewController {
         self.basicUI()
         self.basicData()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.becomeTransparent(true, tintColor: UIColor.white,
-                                                              titleColor: UIColor.white)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.becomeTransparent(false, tintColor: view.tintColor,
-                                                              titleColor: UIColor.black)
-    }
-    
+        
     func basicUI() {
         switch MainManager.sharedInstance.currentArtistType {
+        case .artwork:
+            break
         case .tattoo:
             if let artWorkViewModel = MainManager.sharedInstance.selectedArtWork as? TattooViewModel {
                 self.dataSourceLength = artWorkViewModel.imagesIPFS.count
@@ -230,6 +220,8 @@ extension ArtWorkDetailViewController: UITableViewDataSource {
             let cell: ArtWorkDetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ArtWorkDetailTableViewCell",
                                                                                  for: indexPath) as! ArtWorkDetailTableViewCell
             switch MainManager.sharedInstance.currentArtistType {
+            case .artwork:
+                break
             case .tattoo:
                 if let artWorkViewModel = MainManager.sharedInstance.selectedArtWork as? TattooViewModel {
                     cell.bindData(imageIPFS: artWorkViewModel.imagesIPFS[indexPath.row], index: indexPath.row)

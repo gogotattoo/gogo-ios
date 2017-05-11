@@ -84,7 +84,7 @@ extension TattooViewModel: Hashable {
     
     var hashValue : Int {
         get {
-            return (self.identifier.hashValue)
+            return (self.identifier).hashValue
         }
     }
     

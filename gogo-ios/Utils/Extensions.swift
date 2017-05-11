@@ -119,6 +119,16 @@ extension String {
         return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
     }
     
+    func substring(to index: Int) -> String
+    {
+        if (index < 0 || index > self.characters.count)
+        {
+            print("index \(index) out of bounds")
+            return ""
+        }
+        return self.substring(to: self.characters.index(self.startIndex, offsetBy: index))
+    }
+
 }
 
 extension UIFont {
@@ -187,3 +197,296 @@ extension UIImage {
 
 }
 
+extension UIView {
+    
+    /// Returns a CALayer that add rounded corners to a UIView
+    ///
+    /// - Parameter corners: a instance of UIRectCorner which defines which corner needs to be rounded
+    /// - Parameter radius: a CGFloat value that measures how round the corner is
+    func addRoundCorners(_ corners: UIRectCorner, radius: CGFloat) -> CALayer {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+        return mask
+    }
+    
+    /// Returns a CALayer that add rounded top corner to a UIView
+    ///
+    /// - Parameter color: a instance of UIColor which defines what color is the rounded corner
+    /// - Parameter width: a CGFloat value that measures how bold the corner line is
+    func addTopBorderWithColor(_ color: UIColor, width: CGFloat) -> CALayer {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: width)
+        self.layer.addSublayer(border)
+        return border
+    }
+    
+    /// Returns a CALayer that add rounded right corner to a UIView
+    ///
+    /// - Parameter color: a instance of UIColor which defines what color is the rounded corner
+    /// - Parameter width: a CGFloat value that measures how bold the corner line is
+    func addRightBorderWithColor(_ color: UIColor, width: CGFloat) -> CALayer {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: self.frame.size.width - width, y: 0, width: width, height: self.frame.size.height)
+        self.layer.addSublayer(border)
+        return border
+    }
+    
+    /// Returns a CALayer that add rounded bottom corner to a UIView
+    ///
+    /// - Parameter color: a instance of UIColor which defines what color is the rounded corner
+    /// - Parameter width: a CGFloat value that measures how bold the corner line is
+    func addBottomBorderWithColor(_ color: UIColor, width: CGFloat) -> CALayer {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: width)
+        self.layer.addSublayer(border)
+        return border
+    }
+    
+    /// Returns a CALayer that add rounded bottom corner to a UIView
+    ///
+    /// - Parameter color: a instance of UIColor which defines what color is the rounded corner
+    /// - Parameter width: a CGFloat value that measures how bold the corner line is
+    func addBottomBorderWithColor(_ color: UIColor, width: CGFloat, leftPadding: CGFloat) -> CALayer {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: leftPadding, y: self.frame.size.height - width, width: self.frame.size.width, height: width)
+        self.layer.addSublayer(border)
+        return border
+    }
+    
+    /// Returns a CALayer that add rounded left corner to a UIView
+    ///
+    /// - Parameter color: a instance of UIColor which defines what color is the rounded corner
+    /// - Parameter width: a CGFloat value that measures how bold the corner line is
+    func addLeftBorderWithColor(_ color: UIColor, width: CGFloat) -> CALayer {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.size.height)
+        self.layer.addSublayer(border)
+        return border
+    }
+    
+    /// set a subview contraints to cover the parent view
+    ///
+    /// - Parameter parent view: a uiview instance
+    func addConstraintsToCover(_ parentView: UIView) {
+        let horizontalConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.centerX, relatedBy: NSLayoutRelation.equal, toItem: parentView, attribute: NSLayoutAttribute.centerX, multiplier: 1, constant: 0)
+        parentView.addConstraint(horizontalConstraint)
+        let verticalConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.centerY, relatedBy: NSLayoutRelation.equal, toItem: parentView, attribute: NSLayoutAttribute.centerY, multiplier: 1, constant: 0)
+        parentView.addConstraint(verticalConstraint)
+        let widthConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: parentView, attribute: NSLayoutAttribute.width, multiplier: 1, constant: 0)
+        parentView.addConstraint(widthConstraint)
+        let heightConstraint = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.height, relatedBy: NSLayoutRelation.equal, toItem: parentView, attribute: NSLayoutAttribute.height, multiplier: 1, constant: 0)
+        parentView.addConstraint(heightConstraint)
+        parentView.updateConstraints()
+    }
+    
+    /// Returns a UIView from a nib
+    ///
+    /// - Parameter nibNamed: the name of the nib file
+    /// - Parameter bundle: the NSBundle that contains the nib file
+    class func loadFromNibNamed(_ nibNamed: String, bundle: Bundle? = nil) -> UIView? {
+        return UINib(nibName: nibNamed, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
+    }
+    
+    /// add shadow to a view
+    ///
+    /// - Parameter color: shadow color
+    /// - Parameter offset: shadow offset
+    /// - Parameter opacity: shadow opacity
+    /// - Parameter radius: shadow radius
+    func addShadow(color: CGColor = UIColor.black.cgColor, offset: CGSize = CGSize.zero, opacity: Float = 0.5, radius: CGFloat = 1.0) {
+        layer.shadowColor = color
+        layer.shadowOffset = offset
+        layer.shadowOpacity = opacity
+        layer.shadowRadius = radius
+        /// set the shadowPath property to a specific value so that iOS doesn't need to calculate transparency dynamically
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+    }
+    
+    func addGradient(startColor: UIColor, endColor: UIColor) {
+        layoutIfNeeded()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+}
+
+extension UIViewController {
+    
+    /// Prompt a UIAlertController which has a title
+    ///
+    /// - Parameter message: it will be the title of this UIAlertController
+    func alert(_ title: String, message: String? = nil) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismiss = "Dismiss"
+        alertController.addAction(UIAlertAction(title: dismiss, style: UIAlertActionStyle.default, handler: nil))
+        alertController.view.tintColor = Palette.gogoRed
+        present(alertController, animated: true, completion: {
+            alertController.view.tintColor = Palette.gogoRed
+        })
+    }
+    
+    /// Prompt a UIAlertController which has title and action
+    ///
+    /// - Parameter title: it will be the title of this UIAlertController
+    /// - Parameter action: it will be called when user dismiss this UIAlertController
+    func alert(_ title: String, message: String? = nil, action:@escaping ()->()) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismiss = "Dismiss"
+        alertController.addAction(UIAlertAction(title: dismiss, style: UIAlertActionStyle.default, handler: { (alertAction:UIAlertAction!) -> Void in
+            action()
+        }))
+        alertController.view.tintColor = Palette.gogoRed
+        present(alertController, animated: true, completion: {
+            alertController.view.tintColor = Palette.gogoRed
+        })
+    }
+    
+    /// Prompt a UIAlertController which has a title and an actioin
+    ///
+    /// - Parameter title: it will be the title of this UIAlertController
+    /// - Parameter action: it will be called when user touches the ok button
+    func alertChoose(_ title: String, message: String? = nil, okButtonTitle: String? = nil, action:@escaping ()->()) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancel = "Cancel"
+        let cancelAction = UIAlertAction(title: cancel, style: UIAlertActionStyle.default, handler: nil)
+        cancelAction.setValue(Palette.persianGreen, forKey: "titleTextColor")
+        alertController.addAction(cancelAction)
+        var ok = "OK"
+        if let okTitle = okButtonTitle {
+            ok = okTitle
+        }
+        alertController.addAction(UIAlertAction(title: ok, style: UIAlertActionStyle.destructive,
+                                                handler: { (alertAction:UIAlertAction!) -> Void in
+            action()
+        }))
+        alertController.view.tintColor = Palette.gogoRed
+        present(alertController, animated: true, completion: {
+            alertController.view.tintColor = Palette.gogoRed
+        })
+    }
+    
+    /// Prompt a UIAlertController which has a title and two actioin
+    ///
+    /// - Parameter title: it will be the title of this UIAlertController
+    /// - Parameter leftButtonTitle: title of left button
+    /// - Parameter leftButtonAction: action after click leftButtonTitle
+    /// - Parameter rightButtonTitle: title of right button
+    /// - Parameter rightButtonAction: action after click rightButtonTitle
+    func alertChoose(_ title: String, message: String?,
+                     leftButtonTitle: String, leftButtonAction: @escaping ()->(),
+                     rightButtonTitle: String, rightButtonAction: @escaping ()->()) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let leftButtonAction = UIAlertAction(title: leftButtonTitle, style: UIAlertActionStyle.default) { (alertAction) in
+            leftButtonAction()
+        }
+        leftButtonAction.setValue(Palette.persianGreen, forKey: "titleTextColor")
+        alertController.addAction(leftButtonAction)
+        
+        let rihgtButtonAction = UIAlertAction(title: rightButtonTitle, style: UIAlertActionStyle.default) { (alertAction) in
+            rightButtonAction()
+        }
+        rihgtButtonAction.setValue(Palette.gogoRed, forKey: "titleTextColor")
+        alertController.addAction(rihgtButtonAction)
+        present(alertController, animated: true, completion: {
+            alertController.view.tintColor = Palette.gogoRed
+        })
+    }
+    
+    /// Prompt a UIAlertController which has a title, a message, a textfield and an action
+    ///
+    /// - Parameter title: it will be the title of this UIAlertController
+    /// - Parameter message: it will be the message of this UIAlertController
+    /// - Parameter placeholder: it will be the placeholder of the textField
+    /// - Parameter secureTextEntry: set true when we want the input of the testFiled to be secured
+    /// - Parameter action: it will be called when user touches the submit button
+    func alertWithTextField(_ title: String, message: String, placeholder: String? = nil, secureTextEntry: Bool = false, okButtonTitle: String? = nil, action: @escaping (_ alertController: UIAlertController)->()) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = placeholder
+            if secureTextEntry {
+                textField.isSecureTextEntry = true
+            }
+        }
+        let close = "Close"
+        let closeAction = UIAlertAction(title: close, style: UIAlertActionStyle.cancel, handler: nil)
+        closeAction.setValue(Palette.persianGreen, forKey: "titleTextColor")
+        alertController.addAction(closeAction)
+        var submit = "Submit"
+        if let okTitle = okButtonTitle {
+            submit = okTitle
+        }
+        let submitAction = UIAlertAction(title: submit, style: UIAlertActionStyle.destructive, handler: { (alertAction:UIAlertAction!) -> Void in
+            action(alertController)
+        })
+        alertController.addAction(submitAction)
+        alertController.view.tintColor = Palette.gogoRed
+        present(alertController, animated: true, completion: {
+            alertController.view.tintColor = Palette.gogoRed
+        })
+    }
+    
+    func alertChooseWithTextField(_ title: String, message: String, placeholder: String, secureTextEntry: Bool, action: @escaping (_ alertController: UIAlertController)->(), closeAction: @escaping (_ alertController: UIAlertController)->()) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = placeholder
+            if secureTextEntry {
+                textField.isSecureTextEntry = true
+            }
+        }
+        let close = "Close"
+        let closeAction = UIAlertAction(title: close, style: UIAlertActionStyle.cancel) { (cancleAlertAction:UIAlertAction!) in
+            closeAction(alertController)
+        }
+        closeAction.setValue(Palette.persianGreen, forKey: "titleTextColor")
+        alertController.addAction(closeAction)
+        
+        let submit = "Submit"
+        let submitAction = UIAlertAction(title: submit, style: UIAlertActionStyle.destructive, handler: { (alertAction:UIAlertAction!) -> Void in
+            action(alertController)
+        })
+        
+        alertController.addAction(submitAction)
+        alertController.view.tintColor = Palette.gogoRed
+        present(alertController, animated: true, completion: {
+            alertController.view.tintColor = Palette.gogoRed
+        })
+    }
+    
+    /// Perform the action after a specified seconds
+    ///
+    /// - Parameter seconds: after it the completion action will be called
+    /// - Parameter completion: the cation needs to be called
+    func delay(_ seconds: Double, completion: @escaping ()->()) {
+        let delayTime = DispatchTime.now() + Double(Int64(seconds * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
+            completion()
+        }
+    }
+    
+    func checkPasswordIfValid(_ password: String) -> Bool {
+        if password.characters.count <= 5 {
+            self.alert("Please enter a valid password")
+            return false
+        }
+        return true
+    }
+    
+}
+
+extension String {
+    func trim() -> String {
+        return self.trimmingCharacters(in: NSCharacterSet.whitespaces)
+    }
+}

@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class BaseViewController: UIViewController {
+class BaseViewController: UIViewController, NVActivityIndicatorViewable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.becomeTransparent(true, tintColor: UIColor.white,
+                                                              titleColor: UIColor.white)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.becomeTransparent(false, tintColor: view.tintColor,
+                                                              titleColor: UIColor.black)
     }
 
     override func didReceiveMemoryWarning() {

@@ -27,6 +27,8 @@ class ArtWorkTableViewCell: UITableViewCell {
     func bindData(artWorkViewModel: AnyObject) {
         // TODO: optimiaze the logic
         switch MainManager.sharedInstance.currentArtistType {
+        case .artwork:
+            break
         case .tattoo:
             if !(artWorkViewModel is TattooViewModel) { return }
             self.currentArtWorkViewModel = artWorkViewModel

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class DataManager {
     
@@ -20,9 +21,11 @@ class DataManager {
     // MARK: Artist
     func requestArtistList(completion: @escaping (_ result: Array<ArtistViewModel>?, _ error: NSError?)->()?) {
         self.dataQueue.async {
+            [weak self] in
+            guard let strongSelf = self else { return }
             // db select
-            self.dbRoot.selectArtists { [weak self] (result, error) -> Void in
-                guard let strongSelf = self else { return }
+            strongSelf.dbRoot.selectArtists { [weak strongSelf] (result, error) -> Void in
+                guard let strongSelf = strongSelf else { return }
                 if error != nil {
                     strongSelf.dataQueue.async {
                         completion(nil, error)
@@ -80,7 +83,11 @@ class DataManager {
     }
     
     func insertArtists(_ completion: @escaping (_ result: Bool, _ error: NSError?)->()?) {
-        self.dbRoot.insertArtists(self.artistViewModels, completion: {
+        if self.artistViewModels == nil {
+            completion(false, nil)
+            return
+        }
+        self.dbRoot.insertArtists(self.artistViewModels!, completion: {
             (result, error) -> Void in
             if error != nil {
                 #if DEBUG
@@ -146,6 +153,18 @@ class DataManager {
         }
         
         switch artistType {
+        case .artwork:
+            self.artWorkViewModels!.removeAll()
+            var artWorkViewModels = self.artWorkViewModels as? Array<ArtWorkViewModel>
+            if artWorkViewModels == nil { return }
+            for jsonData in retArray! {
+                let artWorkViewModel: ArtWorkViewModel = ArtWorkViewModel(json: jsonData)
+                if !artWorkViewModels!.contains(artWorkViewModel) {
+                    artWorkViewModels!.append(artWorkViewModel)
+                }
+            }
+            self.artWorkViewModels = artWorkViewModels!.sorted(by: { $0.date > $1.date })
+            break
         case .tattoo:
             var artWorkViewModels = self.artWorkViewModels as? Array<TattooViewModel>
             if artWorkViewModels == nil { return }
@@ -156,7 +175,7 @@ class DataManager {
                 } else {
                     let index: Int = artWorkViewModels!.index(of: tattooViewModel)! // force to update
                     tattooViewModel.setCellHeight(cellHeight: artWorkViewModels![index].cellHeight)
-                    self.artWorkViewModels![index] = tattooViewModel
+                    self.artWorkViewModels![index] = tattooViewModel // TODO: fatal error: Index out of range
                 }
             }
             self.artWorkViewModels = artWorkViewModels!.sorted(by: { $0.date > $1.date })
@@ -246,4 +265,41 @@ class DataManager {
         })
     }
     
+    func requestWipArtWorkList(_ artist: String, artistType: ArtistType,
+                               completion: @escaping (_ result: Array<AnyObject>?, _ error: NSError?)->()?) {
+        self.dataQueue.async {
+            [weak self] in
+            guard let strongSelf = self else { return }
+            let path = "/\(artist)/\(artistType.rawValue)?status=wip"
+            strongSelf.networkService.request(path, parameters: nil) {
+                [weak strongSelf] (result, error) -> Void in
+                guard let strongSelf = strongSelf else { return }
+                strongSelf.dataQueue.async {
+                    if error != nil {
+                        completion(nil, error!)
+                        return
+                    }
+                    if result != nil {
+                        strongSelf.parseDataToArtworks(result, artistType: ArtistType.artwork)
+                        completion(self!.artWorkViewModels, nil)
+                    }
+                }
+            }
+        }
+    }
+    
+    func requestIfUploadImageSucceed(path: String, params: Parameters,
+                                     completion: @escaping (_ result: AnyObject?, _ error: NSError?)->()?) {
+        self.networkService.request(path,
+                                    parameters: params as [String : AnyObject],
+                                    method: .post) { (result, error) -> Void in
+                                        if error != nil {
+                                            completion(nil, error)
+                                        }
+                                        if result != nil {
+                                            completion(result, nil)
+                                        }
+        }
+    }
+
 }

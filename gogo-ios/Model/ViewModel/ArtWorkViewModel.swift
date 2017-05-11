@@ -84,7 +84,7 @@ extension ArtWorkViewModel: Hashable {
     
     var hashValue : Int {
         get {
-            return (self.link.hashValue)
+            return (self.identifier + self.link + self.artistType.rawValue).hashValue
         }
     }
     
@@ -184,7 +184,9 @@ extension ArtWorkViewModel: Realmable {
 extension ArtWorkViewModel: Equatable {
     
     static func ==(lhs: ArtWorkViewModel, rhs: ArtWorkViewModel) -> Bool {
-        return lhs.link == rhs.link
+        return lhs.identifier == rhs.identifier
+            && lhs.link == rhs.link
+            && lhs.artistType == rhs.artistType
     }
     
 }

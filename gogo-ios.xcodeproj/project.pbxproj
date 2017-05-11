@@ -26,6 +26,8 @@
 		F71195B71EBC721D00712FF5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F71195B61EBC721D00712FF5 /* libc++.tbd */; };
 		F71195B91EBC722600712FF5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71195B81EBC722600712FF5 /* SystemConfiguration.framework */; };
 		F71195BB1EBC722F00712FF5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71195BA1EBC722F00712FF5 /* CoreTelephony.framework */; };
+		F72944521EC2E881007753FF /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72944511EC2E881007753FF /* NVActivityIndicatorView.framework */; };
+		F72944541EC2F8BC007753FF /* WIPArtWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72944531EC2F8BC007753FF /* WIPArtWorksViewController.swift */; };
 		F745A23F1EBA122200A5CBAA /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F745A23E1EBA122200A5CBAA /* icomoon.ttf */; };
 		F745A2411EBA14DD00A5CBAA /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F745A2401EBA14DD00A5CBAA /* Enumeration.swift */; };
 		F745A2491EBC5A1D00A5CBAA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F745A2441EBC5A1D00A5CBAA /* README.txt */; };
@@ -59,6 +61,14 @@
 		F78308881EBF2DA200DBAA6B /* DPPopOverMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78308831EBF2DA200DBAA6B /* DPPopOverMenuCell.swift */; };
 		F78308891EBF2DA200DBAA6B /* DPPopOverMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F78308841EBF2DA200DBAA6B /* DPPopOverMenuCell.xib */; };
 		F783088B1EBF7ABF00DBAA6B /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F783088A1EBF7ABF00DBAA6B /* iconfont.ttf */; };
+		F783088F1EC194DC00DBAA6B /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783088D1EC194DC00DBAA6B /* ActionButton.swift */; };
+		F78308901EC194DC00DBAA6B /* ActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F783088E1EC194DC00DBAA6B /* ActionButtonItem.swift */; };
+		F78308981EC1BA4600DBAA6B /* ASJTag.m in Sources */ = {isa = PBXBuildFile; fileRef = F78308931EC1BA4600DBAA6B /* ASJTag.m */; };
+		F78308991EC1BA4600DBAA6B /* ASJTag.xib in Resources */ = {isa = PBXBuildFile; fileRef = F78308941EC1BA4600DBAA6B /* ASJTag.xib */; };
+		F783089A1EC1BA4600DBAA6B /* ASJTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = F78308961EC1BA4600DBAA6B /* ASJTagsView.m */; };
+		F783089B1EC1BA4600DBAA6B /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F78308971EC1BA4600DBAA6B /* Resources.bundle */; };
+		F7A4E6791EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A4E6771EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.swift */; };
+		F7A4E67A1EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7A4E6781EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.xib */; };
 		F7B078901EAF49CE00B537AB /* TattooViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B0788F1EAF49CE00B537AB /* TattooViewModel.swift */; };
 		F7B078921EAF4B3900B537AB /* HennaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B078911EAF4B3900B537AB /* HennaViewModel.swift */; };
 		F7B078941EAF4C1600B537AB /* DesignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B078931EAF4C1600B537AB /* DesignViewModel.swift */; };
@@ -104,6 +114,8 @@
 		F71195B61EBC721D00712FF5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		F71195B81EBC722600712FF5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F71195BA1EBC722F00712FF5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		F72944511EC2E881007753FF /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
+		F72944531EC2F8BC007753FF /* WIPArtWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WIPArtWorksViewController.swift; sourceTree = "<group>"; };
 		F745A23E1EBA122200A5CBAA /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
 		F745A2401EBA14DD00A5CBAA /* Enumeration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
 		F745A2431EBC5A1D00A5CBAA /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
@@ -143,6 +155,16 @@
 		F78308831EBF2DA200DBAA6B /* DPPopOverMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPPopOverMenuCell.swift; sourceTree = "<group>"; };
 		F78308841EBF2DA200DBAA6B /* DPPopOverMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPPopOverMenuCell.xib; sourceTree = "<group>"; };
 		F783088A1EBF7ABF00DBAA6B /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = iconfont.ttf; sourceTree = "<group>"; };
+		F783088D1EC194DC00DBAA6B /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		F783088E1EC194DC00DBAA6B /* ActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionButtonItem.swift; sourceTree = "<group>"; };
+		F78308921EC1BA4600DBAA6B /* ASJTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASJTag.h; sourceTree = "<group>"; };
+		F78308931EC1BA4600DBAA6B /* ASJTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJTag.m; sourceTree = "<group>"; };
+		F78308941EC1BA4600DBAA6B /* ASJTag.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASJTag.xib; sourceTree = "<group>"; };
+		F78308951EC1BA4600DBAA6B /* ASJTagsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASJTagsView.h; sourceTree = "<group>"; };
+		F78308961EC1BA4600DBAA6B /* ASJTagsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJTagsView.m; sourceTree = "<group>"; };
+		F78308971EC1BA4600DBAA6B /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
+		F7A4E6771EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WIPArtWorkDetailTableViewCell.swift; sourceTree = "<group>"; };
+		F7A4E6781EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WIPArtWorkDetailTableViewCell.xib; sourceTree = "<group>"; };
 		F7B0788F1EAF49CE00B537AB /* TattooViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TattooViewModel.swift; sourceTree = "<group>"; };
 		F7B078911EAF4B3900B537AB /* HennaViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HennaViewModel.swift; sourceTree = "<group>"; };
 		F7B078931EAF4C1600B537AB /* DesignViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignViewModel.swift; sourceTree = "<group>"; };
@@ -175,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F72944521EC2E881007753FF /* NVActivityIndicatorView.framework in Frameworks */,
 				F783087E1EBF08E000DBAA6B /* libWeChatSDK.a in Frameworks */,
 				F71195BB1EBC722F00712FF5 /* CoreTelephony.framework in Frameworks */,
 				F71195B91EBC722600712FF5 /* SystemConfiguration.framework in Frameworks */,
@@ -198,6 +221,7 @@
 		F71045D21EA1FE4F00FEAD4A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F72944511EC2E881007753FF /* NVActivityIndicatorView.framework */,
 				F71195BA1EBC722F00712FF5 /* CoreTelephony.framework */,
 				F71195B81EBC722600712FF5 /* SystemConfiguration.framework */,
 				F71195B61EBC721D00712FF5 /* libc++.tbd */,
@@ -257,6 +281,28 @@
 				F78308841EBF2DA200DBAA6B /* DPPopOverMenuCell.xib */,
 			);
 			path = DPArrowMenu;
+			sourceTree = "<group>";
+		};
+		F783088C1EC194DC00DBAA6B /* ActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				F783088D1EC194DC00DBAA6B /* ActionButton.swift */,
+				F783088E1EC194DC00DBAA6B /* ActionButtonItem.swift */,
+			);
+			path = ActionButton;
+			sourceTree = "<group>";
+		};
+		F78308911EC1BA4600DBAA6B /* ASJTagsView */ = {
+			isa = PBXGroup;
+			children = (
+				F78308921EC1BA4600DBAA6B /* ASJTag.h */,
+				F78308931EC1BA4600DBAA6B /* ASJTag.m */,
+				F78308941EC1BA4600DBAA6B /* ASJTag.xib */,
+				F78308951EC1BA4600DBAA6B /* ASJTagsView.h */,
+				F78308961EC1BA4600DBAA6B /* ASJTagsView.m */,
+				F78308971EC1BA4600DBAA6B /* Resources.bundle */,
+			);
+			path = ASJTagsView;
 			sourceTree = "<group>";
 		};
 		F7B8B5321EA0BD3A005C7474 /* Base */ = {
@@ -334,6 +380,7 @@
 				F76BBBEE1EA85A2800FD5759 /* ArtWorksViewController.swift */,
 				F7F11AFE1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift */,
 				F7524FB91EB5CE480055BF27 /* UploadArtWorksViewController.swift */,
+				F72944531EC2F8BC007753FF /* WIPArtWorksViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -403,6 +450,8 @@
 		F7F21A741E9559CA004824A4 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				F78308911EC1BA4600DBAA6B /* ASJTagsView */,
+				F783088C1EC194DC00DBAA6B /* ActionButton */,
 				F745A2421EBC5A1D00A5CBAA /* WechatSDK1.7.7 */,
 			);
 			path = Vendors;
@@ -424,6 +473,8 @@
 				F7F11B011EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.xib */,
 				F7F11B061EB10F6000F9E350 /* QRCodeTableViewCell.swift */,
 				F7F11B071EB10F6000F9E350 /* QRCodeTableViewCell.xib */,
+				F7A4E6771EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.swift */,
+				F7A4E6781EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -462,7 +513,7 @@
 					F7F21A551E955990004824A4 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = FC9QT6TC28;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -497,8 +548,11 @@
 				F76BBBFC1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib in Resources */,
 				F7F21A611E955990004824A4 /* Assets.xcassets in Resources */,
 				F76BBBE51EA73DEA00FD5759 /* BackgroundTableViewCell.xib in Resources */,
+				F7A4E67A1EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.xib in Resources */,
 				F783088B1EBF7ABF00DBAA6B /* iconfont.ttf in Resources */,
+				F783089B1EC1BA4600DBAA6B /* Resources.bundle in Resources */,
 				F7F21A5F1E955990004824A4 /* Main.storyboard in Resources */,
+				F78308991EC1BA4600DBAA6B /* ASJTag.xib in Resources */,
 				F7F11B031EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.xib in Resources */,
 				F78308891EBF2DA200DBAA6B /* DPPopOverMenuCell.xib in Resources */,
 			);
@@ -521,6 +575,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Toucan.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/NukeToucanPlugin.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/QRCode.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/NVActivityIndicatorView.framework",
 			);
 			outputPaths = (
 			);
@@ -541,9 +596,12 @@
 				F7B8B5301EA0BC5C005C7474 /* Extensions.swift in Sources */,
 				F76738AF1EA3612F008E4D80 /* DataManager.swift in Sources */,
 				F71045FE1EA21D7A00FEAD4A /* FileDirectoryManager.swift in Sources */,
+				F78308901EC194DC00DBAA6B /* ActionButtonItem.swift in Sources */,
 				F76738B31EA36C0D008E4D80 /* ArtistViewModel.swift in Sources */,
 				F76BBBF81EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift in Sources */,
+				F78308981EC1BA4600DBAA6B /* ASJTag.m in Sources */,
 				F7B078961EAF4CAE00B537AB /* PiercingViewModel.swift in Sources */,
+				F7A4E6791EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.swift in Sources */,
 				F7B078981EAF4EAF00B537AB /* DreadlocksViewModel.swift in Sources */,
 				F7B078901EAF49CE00B537AB /* TattooViewModel.swift in Sources */,
 				F745A2411EBA14DD00A5CBAA /* Enumeration.swift in Sources */,
@@ -551,6 +609,7 @@
 				F71045E81EA2049F00FEAD4A /* Piercing.swift in Sources */,
 				F7F21A761E9559CA004824A4 /* ArtWork.swift in Sources */,
 				F7B8B52E1EA0BB65005C7474 /* Palette.swift in Sources */,
+				F72944541EC2F8BC007753FF /* WIPArtWorksViewController.swift in Sources */,
 				F71045E41EA2037A00FEAD4A /* Design.swift in Sources */,
 				F71045EA1EA204B900FEAD4A /* Dreadlocks.swift in Sources */,
 				F76BBBEB1EA7697E00FD5759 /* ArtistCollectionViewCell.swift in Sources */,
@@ -558,6 +617,7 @@
 				F76BBBF01EA85A2800FD5759 /* ArtWorksViewController.swift in Sources */,
 				F71045E61EA2044C00FEAD4A /* Henna.swift in Sources */,
 				F76BBBF11EA85A2800FD5759 /* MainViewController.swift in Sources */,
+				F783089A1EC1BA4600DBAA6B /* ASJTagsView.m in Sources */,
 				F71045F51EA2128E00FEAD4A /* DBRoot.swift in Sources */,
 				F76738AD1EA35DFA008E4D80 /* Constant.swift in Sources */,
 				F745A24E1EBC5E5C00A5CBAA /* ShareManager.swift in Sources */,
@@ -584,6 +644,7 @@
 				F7F11B081EB10F6000F9E350 /* QRCodeTableViewCell.swift in Sources */,
 				F71045EE1EA2094A00FEAD4A /* ModelProtocol.swift in Sources */,
 				F76BBBDF1EA73B3A00FD5759 /* BackgroundTableViewHeaderView.swift in Sources */,
+				F783088F1EC194DC00DBAA6B /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,8 +779,10 @@
 					"$(PROJECT_DIR)/gogo-ios/Vendors/WechatSDK1.7.7",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.hlyu.gogo-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.hlyu.GoGoTattoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b291a538-a8c2-4cf2-99da-363dfa9e17dd";
+				PROVISIONING_PROFILE_SPECIFIER = GoGoTattooDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "gogo-ios/gogo-ios-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -729,6 +792,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = FC9QT6TC28;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -741,8 +805,10 @@
 					"$(PROJECT_DIR)/gogo-ios/Vendors/WechatSDK1.7.7",
 				);
 				OTHER_LDFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = "cn.hlyu.gogo-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.hlyu.GoGoTattoo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "db28677a-2157-498a-92ec-758cdbf1de6e";
+				PROVISIONING_PROFILE_SPECIFIER = GoGoTattooDis;
 				SWIFT_OBJC_BRIDGING_HEADER = "gogo-ios/gogo-ios-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

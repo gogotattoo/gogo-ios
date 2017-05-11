@@ -25,18 +25,6 @@ class ArtWorksViewController: BaseViewController {
         self.basicData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.becomeTransparent(true, tintColor: UIColor.white,
-                                                              titleColor: UIColor.white)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.becomeTransparent(false, tintColor: view.tintColor,
-                                                              titleColor: UIColor.black)
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // TODO: Release memmory, keep current tableview data
@@ -70,7 +58,6 @@ class ArtWorksViewController: BaseViewController {
                     // TODO: indicator show alert for 2 seconds
                     print(error!)
                     self.doingAnimation = false
-                    self.menuCollectionView.isUserInteractionEnabled = true
                 })
             }
             if result != nil {
@@ -78,7 +65,6 @@ class ArtWorksViewController: BaseViewController {
                     self.doingAnimation = false
                     self.title = "gogo.tattoo/\(MainManager.sharedInstance.currentArtistType.rawValue)"
                     self.artWorkListCollectionView.reloadData()
-                    self.menuCollectionView.isUserInteractionEnabled = true
                 })
             }
         }
@@ -95,7 +81,6 @@ class ArtWorksViewController: BaseViewController {
                     // TODO: indicator show alert for 2 seconds
                     print(error!)
                     self.doingAnimation = false
-                    self.menuCollectionView.isUserInteractionEnabled = true
                 })
             }
             if result != nil {
@@ -103,7 +88,6 @@ class ArtWorksViewController: BaseViewController {
                     self.doingAnimation = false
                     self.title = "gogo.tattoo/\(MainManager.sharedInstance.currentArtistType.rawValue)"
                     self.artWorkListCollectionView.reloadData()
-                    self.menuCollectionView.isUserInteractionEnabled = true
                 })
             }
         }
@@ -179,7 +163,6 @@ extension ArtWorksViewController: UICollectionViewDelegate {
             if indexPath.row == MainManager.sharedInstance.selectedIndex {
                 return
             }
-            self.menuCollectionView.isUserInteractionEnabled = false
             // TODO: optimize
             if indexPath.row > MainManager.sharedInstance.selectedIndex { // next, to right
                 let visibleItems = self.artWorkListCollectionView.indexPathsForVisibleItems

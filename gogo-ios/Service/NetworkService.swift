@@ -181,7 +181,8 @@ final class NetworkService {
             encoding = URLEncoding.default
         }
         if method == .post {
-            encoding = CustomEncoding()
+            encoding = JSONEncoding(options: [])
+//            encoding = CustomEncoding()
         }
         
         // path

@@ -24,7 +24,13 @@ class ArtistViewModel {
     fileprivate(set) var locationNow: String = ""
     fileprivate(set) var services: [String] = []
     
+    // Custom properties
+    fileprivate(set) var selectedArtist: Bool = false
+
     // MARK: Properties Setter
+    func setSelectedArtist(selectedArtist: Bool) {
+        self.selectedArtist = selectedArtist
+    }
     
     // MARK: Life Cycle
     required init() {
@@ -91,6 +97,7 @@ extension ArtistViewModel: Copyable {
         result.origin = self.origin
         result.locationNow = self.locationNow
         result.services = self.services
+        result.selectedArtist = self.selectedArtist
         return result
     }
     

@@ -104,7 +104,7 @@ final public class DBRoot {
     
     // MARK: Database Actions
     /// Artist
-    func insertArtists(_ artistViewModels: Array<ArtistViewModel>?,
+    func insertArtists(_ artistViewModels: Array<ArtistViewModel>,
                        completion: @escaping (_ result: Bool, _ error: NSError?)->()?) {
         let block = {
             autoreleasepool {
@@ -114,7 +114,7 @@ final public class DBRoot {
                 do {
                     let realm = try Realm()
                     realm.beginWrite()
-                    for artistViewModel in artistViewModels! {
+                    for artistViewModel in artistViewModels {
                         let artist: Artist = artistViewModel.fetchArtist()
                         realm.add(artist, update: true)
                     }
@@ -155,7 +155,7 @@ final public class DBRoot {
     }
 
     /// ArtWork
-    func insertArtWorks(_ artWorkViewModels: Array<AnyObject>?,
+    func insertArtWorks(_ artWorkViewModels: Array<AnyObject>,
                         artistType: ArtistType,
                         artistLink: String,
                         completion: @escaping (_ result: Bool, _ error: NSError?)->()?) {
@@ -164,8 +164,10 @@ final public class DBRoot {
                 do {
                     let realm = try Realm()
                     realm.beginWrite()
-                    for artWorkViewModel in artWorkViewModels! {
+                    for artWorkViewModel in artWorkViewModels {
                         switch artistType { // TODO: optimize
+                        case .artwork:
+                            break
                         case .tattoo:
                             let artWork: Tattoo = (artWorkViewModel as! TattooViewModel).fetchArtWork()
                             artWork.artistType = artistType.rawValue
@@ -232,6 +234,9 @@ final public class DBRoot {
                     case .dreadlocks:
                         artWorkType = Dreadlocks.self
                         break
+                    default:
+                        artWorkType = ArtWork.self
+                        break
                     }
                     let artWorks = realm.objects(artWorkType).sorted(byKeyPath: "date", ascending: false)
                     try realm.commitWrite()
@@ -273,6 +278,8 @@ final public class DBRoot {
                             if dreadlocksViewModel.artistLink == artistLink && dreadlocksViewModel.artistType == artistType {
                                 retArray.append(dreadlocksViewModel)
                             }
+                            break
+                        default:
                             break
                         }
                     }
