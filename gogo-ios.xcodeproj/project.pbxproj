@@ -28,6 +28,7 @@
 		F71195BB1EBC722F00712FF5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71195BA1EBC722F00712FF5 /* CoreTelephony.framework */; };
 		F72944521EC2E881007753FF /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F72944511EC2E881007753FF /* NVActivityIndicatorView.framework */; };
 		F72944541EC2F8BC007753FF /* WIPArtWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72944531EC2F8BC007753FF /* WIPArtWorksViewController.swift */; };
+		F733C8F71F88AE2A0042ADAD /* BlockChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F733C8F61F88AE2A0042ADAD /* BlockChain.swift */; };
 		F745A23F1EBA122200A5CBAA /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F745A23E1EBA122200A5CBAA /* icomoon.ttf */; };
 		F745A2411EBA14DD00A5CBAA /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F745A2401EBA14DD00A5CBAA /* Enumeration.swift */; };
 		F745A2491EBC5A1D00A5CBAA /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = F745A2441EBC5A1D00A5CBAA /* README.txt */; };
@@ -44,13 +45,9 @@
 		F76BBBE11EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76BBBE01EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib */; };
 		F76BBBE41EA73DEA00FD5759 /* BackgroundTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBE21EA73DEA00FD5759 /* BackgroundTableViewCell.swift */; };
 		F76BBBE51EA73DEA00FD5759 /* BackgroundTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76BBBE31EA73DEA00FD5759 /* BackgroundTableViewCell.xib */; };
-		F76BBBE91EA75F1B00FD5759 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBE81EA75F1B00FD5759 /* MenuCollectionViewCell.swift */; };
 		F76BBBEB1EA7697E00FD5759 /* ArtistCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBEA1EA7697E00FD5759 /* ArtistCollectionViewCell.swift */; };
 		F76BBBF01EA85A2800FD5759 /* ArtWorksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBEE1EA85A2800FD5759 /* ArtWorksViewController.swift */; };
 		F76BBBF11EA85A2800FD5759 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBEF1EA85A2800FD5759 /* MainViewController.swift */; };
-		F76BBBF41EA8695900FD5759 /* ArtWorkFilteredViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBF31EA8695900FD5759 /* ArtWorkFilteredViewModel.swift */; };
-		F76BBBF61EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBF51EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift */; };
-		F76BBBF81EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBF71EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift */; };
 		F76BBBFB1EA8B1D500FD5759 /* ArtWorkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F76BBBF91EA8B1D500FD5759 /* ArtWorkTableViewCell.swift */; };
 		F76BBBFC1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F76BBBFA1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib */; };
 		F76BBC001EA9AD4A00FD5759 /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76BBBFF1EA9AD4A00FD5759 /* Nuke.framework */; };
@@ -67,6 +64,12 @@
 		F78308991EC1BA4600DBAA6B /* ASJTag.xib in Resources */ = {isa = PBXBuildFile; fileRef = F78308941EC1BA4600DBAA6B /* ASJTag.xib */; };
 		F783089A1EC1BA4600DBAA6B /* ASJTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = F78308961EC1BA4600DBAA6B /* ASJTagsView.m */; };
 		F783089B1EC1BA4600DBAA6B /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F78308971EC1BA4600DBAA6B /* Resources.bundle */; };
+		F79791281F849D1B0055EACF /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79791261F849D1B0055EACF /* MenuCollectionViewCell.swift */; };
+		F79791291F849D1B0055EACF /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F79791271F849D1B0055EACF /* MenuCollectionViewCell.xib */; };
+		F797912C1F849D8D0055EACF /* ArtWorkListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F797912A1F849D8D0055EACF /* ArtWorkListCollectionViewCell.swift */; };
+		F797912D1F849D8D0055EACF /* ArtWorkListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F797912B1F849D8D0055EACF /* ArtWorkListCollectionViewCell.xib */; };
+		F797912F1F84BCA20055EACF /* ArtWorkSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F797912E1F84BCA20055EACF /* ArtWorkSectionViewModel.swift */; };
+		F79791311F84BDBE0055EACF /* ArtWorkMatrixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79791301F84BDBE0055EACF /* ArtWorkMatrixViewModel.swift */; };
 		F7A4E6791EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A4E6771EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.swift */; };
 		F7A4E67A1EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7A4E6781EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.xib */; };
 		F7B078901EAF49CE00B537AB /* TattooViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B0788F1EAF49CE00B537AB /* TattooViewModel.swift */; };
@@ -76,11 +79,11 @@
 		F7B078981EAF4EAF00B537AB /* DreadlocksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B078971EAF4EAF00B537AB /* DreadlocksViewModel.swift */; };
 		F7B8B52E1EA0BB65005C7474 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B52D1EA0BB65005C7474 /* Palette.swift */; };
 		F7B8B5301EA0BC5C005C7474 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B52F1EA0BC5C005C7474 /* Extensions.swift */; };
-		F7B8B5341EA0BD49005C7474 /* ProperNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B5331EA0BD49005C7474 /* ProperNavigationController.swift */; };
 		F7B8B5361EA0C169005C7474 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B5351EA0C169005C7474 /* BaseViewController.swift */; };
 		F7B8B53A1EA0C7ED005C7474 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B8B5391EA0C7ED005C7474 /* BaseView.swift */; };
-		F7F11AFC1EB06CB900F9E350 /* NukeToucanPlugin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F11AFA1EB06CB900F9E350 /* NukeToucanPlugin.framework */; };
-		F7F11AFD1EB06CB900F9E350 /* Toucan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7F11AFB1EB06CB900F9E350 /* Toucan.framework */; };
+		F7DFF4891F8366B6000C01CA /* BaseNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFF4881F8366B6000C01CA /* BaseNavigationBar.swift */; };
+		F7DFF48D1F836712000C01CA /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFF48C1F836712000C01CA /* BaseNavigationController.swift */; };
+		F7DFF48F1F836761000C01CA /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DFF48E1F836761000C01CA /* BaseTableViewCell.swift */; };
 		F7F11AFF1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F11AFE1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift */; };
 		F7F11B021EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7F11B001EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.swift */; };
 		F7F11B031EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7F11B011EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.xib */; };
@@ -116,6 +119,7 @@
 		F71195BA1EBC722F00712FF5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F72944511EC2E881007753FF /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
 		F72944531EC2F8BC007753FF /* WIPArtWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WIPArtWorksViewController.swift; sourceTree = "<group>"; };
+		F733C8F61F88AE2A0042ADAD /* BlockChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockChain.swift; sourceTree = "<group>"; };
 		F745A23E1EBA122200A5CBAA /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
 		F745A2401EBA14DD00A5CBAA /* Enumeration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
 		F745A2431EBC5A1D00A5CBAA /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
@@ -137,14 +141,10 @@
 		F76BBBE01EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundTableViewHeaderView.xib; sourceTree = "<group>"; };
 		F76BBBE21EA73DEA00FD5759 /* BackgroundTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundTableViewCell.swift; sourceTree = "<group>"; };
 		F76BBBE31EA73DEA00FD5759 /* BackgroundTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundTableViewCell.xib; sourceTree = "<group>"; };
-		F76BBBE81EA75F1B00FD5759 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		F76BBBEA1EA7697E00FD5759 /* ArtistCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistCollectionViewCell.swift; sourceTree = "<group>"; };
 		F76BBBEC1EA76DDB00FD5759 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		F76BBBEE1EA85A2800FD5759 /* ArtWorksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorksViewController.swift; sourceTree = "<group>"; };
 		F76BBBEF1EA85A2800FD5759 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		F76BBBF31EA8695900FD5759 /* ArtWorkFilteredViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkFilteredViewModel.swift; sourceTree = "<group>"; };
-		F76BBBF51EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkListCollectionViewCell.swift; sourceTree = "<group>"; };
-		F76BBBF71EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkFilteredListViewModel.swift; sourceTree = "<group>"; };
 		F76BBBF91EA8B1D500FD5759 /* ArtWorkTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkTableViewCell.swift; sourceTree = "<group>"; };
 		F76BBBFA1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtWorkTableViewCell.xib; sourceTree = "<group>"; };
 		F76BBBFD1EA91AF300FD5759 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
@@ -163,6 +163,12 @@
 		F78308951EC1BA4600DBAA6B /* ASJTagsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASJTagsView.h; sourceTree = "<group>"; };
 		F78308961EC1BA4600DBAA6B /* ASJTagsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJTagsView.m; sourceTree = "<group>"; };
 		F78308971EC1BA4600DBAA6B /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
+		F79791261F849D1B0055EACF /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		F79791271F849D1B0055EACF /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		F797912A1F849D8D0055EACF /* ArtWorkListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtWorkListCollectionViewCell.swift; sourceTree = "<group>"; };
+		F797912B1F849D8D0055EACF /* ArtWorkListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArtWorkListCollectionViewCell.xib; sourceTree = "<group>"; };
+		F797912E1F84BCA20055EACF /* ArtWorkSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtWorkSectionViewModel.swift; sourceTree = "<group>"; };
+		F79791301F84BDBE0055EACF /* ArtWorkMatrixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtWorkMatrixViewModel.swift; sourceTree = "<group>"; };
 		F7A4E6771EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WIPArtWorkDetailTableViewCell.swift; sourceTree = "<group>"; };
 		F7A4E6781EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WIPArtWorkDetailTableViewCell.xib; sourceTree = "<group>"; };
 		F7B0788F1EAF49CE00B537AB /* TattooViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TattooViewModel.swift; sourceTree = "<group>"; };
@@ -172,9 +178,11 @@
 		F7B078971EAF4EAF00B537AB /* DreadlocksViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DreadlocksViewModel.swift; sourceTree = "<group>"; };
 		F7B8B52D1EA0BB65005C7474 /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		F7B8B52F1EA0BC5C005C7474 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F7B8B5331EA0BD49005C7474 /* ProperNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProperNavigationController.swift; sourceTree = "<group>"; };
 		F7B8B5351EA0C169005C7474 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		F7B8B5391EA0C7ED005C7474 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		F7DFF4881F8366B6000C01CA /* BaseNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationBar.swift; sourceTree = "<group>"; };
+		F7DFF48C1F836712000C01CA /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		F7DFF48E1F836761000C01CA /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		F7F11AFA1EB06CB900F9E350 /* NukeToucanPlugin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NukeToucanPlugin.framework; path = Carthage/Build/iOS/NukeToucanPlugin.framework; sourceTree = "<group>"; };
 		F7F11AFB1EB06CB900F9E350 /* Toucan.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Toucan.framework; path = Carthage/Build/iOS/Toucan.framework; sourceTree = "<group>"; };
 		F7F11AFE1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtWorkDetailViewController.swift; sourceTree = "<group>"; };
@@ -205,8 +213,6 @@
 				F71195B51EBC721100712FF5 /* libsqlite3.0.tbd in Frameworks */,
 				F71195B31EBC720600712FF5 /* libz.tbd in Frameworks */,
 				F7F11B051EB10EFE00F9E350 /* QRCode.framework in Frameworks */,
-				F7F11AFC1EB06CB900F9E350 /* NukeToucanPlugin.framework in Frameworks */,
-				F7F11AFD1EB06CB900F9E350 /* Toucan.framework in Frameworks */,
 				F76BBC001EA9AD4A00FD5759 /* Nuke.framework in Frameworks */,
 				F76738B41EA37143008E4D80 /* SwiftDate.framework in Frameworks */,
 				F71045FA1EA2158100FEAD4A /* Alamofire.framework in Frameworks */,
@@ -265,8 +271,8 @@
 		F76BBBF21EA8693000FD5759 /* FilteredViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				F76BBBF31EA8695900FD5759 /* ArtWorkFilteredViewModel.swift */,
-				F76BBBF71EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift */,
+				F797912E1F84BCA20055EACF /* ArtWorkSectionViewModel.swift */,
+				F79791301F84BDBE0055EACF /* ArtWorkMatrixViewModel.swift */,
 			);
 			path = FilteredViewModel;
 			sourceTree = "<group>";
@@ -308,9 +314,11 @@
 		F7B8B5321EA0BD3A005C7474 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				F7B8B5331EA0BD49005C7474 /* ProperNavigationController.swift */,
 				F7B8B5351EA0C169005C7474 /* BaseViewController.swift */,
+				F7DFF48C1F836712000C01CA /* BaseNavigationController.swift */,
+				F7DFF4881F8366B6000C01CA /* BaseNavigationBar.swift */,
 				F7B8B5391EA0C7ED005C7474 /* BaseView.swift */,
+				F7DFF48E1F836761000C01CA /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -406,6 +414,7 @@
 				F71045E31EA2037A00FEAD4A /* Design.swift */,
 				F71045E71EA2049F00FEAD4A /* Piercing.swift */,
 				F71045E91EA204B900FEAD4A /* Dreadlocks.swift */,
+				F733C8F61F88AE2A0042ADAD /* BlockChain.swift */,
 			);
 			path = RawModel;
 			sourceTree = "<group>";
@@ -464,9 +473,11 @@
 				F76BBBE01EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib */,
 				F76BBBE21EA73DEA00FD5759 /* BackgroundTableViewCell.swift */,
 				F76BBBE31EA73DEA00FD5759 /* BackgroundTableViewCell.xib */,
-				F76BBBE81EA75F1B00FD5759 /* MenuCollectionViewCell.swift */,
 				F76BBBEA1EA7697E00FD5759 /* ArtistCollectionViewCell.swift */,
-				F76BBBF51EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift */,
+				F79791261F849D1B0055EACF /* MenuCollectionViewCell.swift */,
+				F79791271F849D1B0055EACF /* MenuCollectionViewCell.xib */,
+				F797912A1F849D8D0055EACF /* ArtWorkListCollectionViewCell.swift */,
+				F797912B1F849D8D0055EACF /* ArtWorkListCollectionViewCell.xib */,
 				F76BBBF91EA8B1D500FD5759 /* ArtWorkTableViewCell.swift */,
 				F76BBBFA1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib */,
 				F7F11B001EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.swift */,
@@ -507,7 +518,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Hongli Yu";
 				TargetAttributes = {
 					F7F21A551E955990004824A4 = {
@@ -541,12 +552,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7F21A641E955990004824A4 /* LaunchScreen.storyboard in Resources */,
+				F797912D1F849D8D0055EACF /* ArtWorkListCollectionViewCell.xib in Resources */,
 				F7F11B091EB10F6000F9E350 /* QRCodeTableViewCell.xib in Resources */,
 				F76BBBE11EA73B4D00FD5759 /* BackgroundTableViewHeaderView.xib in Resources */,
 				F745A23F1EBA122200A5CBAA /* icomoon.ttf in Resources */,
 				F745A2491EBC5A1D00A5CBAA /* README.txt in Resources */,
 				F76BBBFC1EA8B1D500FD5759 /* ArtWorkTableViewCell.xib in Resources */,
 				F7F21A611E955990004824A4 /* Assets.xcassets in Resources */,
+				F79791291F849D1B0055EACF /* MenuCollectionViewCell.xib in Resources */,
 				F76BBBE51EA73DEA00FD5759 /* BackgroundTableViewCell.xib in Resources */,
 				F7A4E67A1EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.xib in Resources */,
 				F783088B1EBF7ABF00DBAA6B /* iconfont.ttf in Resources */,
@@ -572,8 +585,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nuke.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Toucan.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/NukeToucanPlugin.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/QRCode.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/NVActivityIndicatorView.framework",
 			);
@@ -591,14 +602,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7524FBA1EB5CE480055BF27 /* UploadArtWorksViewController.swift in Sources */,
-				F76BBBF61EA896D000FD5759 /* ArtWorkListCollectionViewCell.swift in Sources */,
 				F76BBBE41EA73DEA00FD5759 /* BackgroundTableViewCell.swift in Sources */,
 				F7B8B5301EA0BC5C005C7474 /* Extensions.swift in Sources */,
 				F76738AF1EA3612F008E4D80 /* DataManager.swift in Sources */,
 				F71045FE1EA21D7A00FEAD4A /* FileDirectoryManager.swift in Sources */,
 				F78308901EC194DC00DBAA6B /* ActionButtonItem.swift in Sources */,
 				F76738B31EA36C0D008E4D80 /* ArtistViewModel.swift in Sources */,
-				F76BBBF81EA89E3B00FD5759 /* ArtWorkFilteredListViewModel.swift in Sources */,
+				F79791281F849D1B0055EACF /* MenuCollectionViewCell.swift in Sources */,
+				F79791311F84BDBE0055EACF /* ArtWorkMatrixViewModel.swift in Sources */,
 				F78308981EC1BA4600DBAA6B /* ASJTag.m in Sources */,
 				F7B078961EAF4CAE00B537AB /* PiercingViewModel.swift in Sources */,
 				F7A4E6791EC41AAF00F09EA4 /* WIPArtWorkDetailTableViewCell.swift in Sources */,
@@ -612,6 +623,7 @@
 				F72944541EC2F8BC007753FF /* WIPArtWorksViewController.swift in Sources */,
 				F71045E41EA2037A00FEAD4A /* Design.swift in Sources */,
 				F71045EA1EA204B900FEAD4A /* Dreadlocks.swift in Sources */,
+				F7DFF48F1F836761000C01CA /* BaseTableViewCell.swift in Sources */,
 				F76BBBEB1EA7697E00FD5759 /* ArtistCollectionViewCell.swift in Sources */,
 				F76BBBFB1EA8B1D500FD5759 /* ArtWorkTableViewCell.swift in Sources */,
 				F76BBBF01EA85A2800FD5759 /* ArtWorksViewController.swift in Sources */,
@@ -622,17 +634,19 @@
 				F76738AD1EA35DFA008E4D80 /* Constant.swift in Sources */,
 				F745A24E1EBC5E5C00A5CBAA /* ShareManager.swift in Sources */,
 				F7F11AFF1EB0C43F00F9E350 /* ArtWorkDetailViewController.swift in Sources */,
+				F797912C1F849D8D0055EACF /* ArtWorkListCollectionViewCell.swift in Sources */,
 				F78308881EBF2DA200DBAA6B /* DPPopOverMenuCell.swift in Sources */,
 				F7F21A5A1E955990004824A4 /* AppDelegate.swift in Sources */,
+				F7DFF4891F8366B6000C01CA /* BaseNavigationBar.swift in Sources */,
+				F733C8F71F88AE2A0042ADAD /* BlockChain.swift in Sources */,
 				F71045EC1EA205A000FEAD4A /* ArtWorkViewModel.swift in Sources */,
-				F76BBBE91EA75F1B00FD5759 /* MenuCollectionViewCell.swift in Sources */,
 				F71045F71EA2128E00FEAD4A /* NetworkService.swift in Sources */,
 				F78308861EBF2DA200DBAA6B /* DPArrowMenuView.swift in Sources */,
-				F7B8B5341EA0BD49005C7474 /* ProperNavigationController.swift in Sources */,
 				F76738AB1EA35C9B008E4D80 /* DeviceInfo.swift in Sources */,
 				F7F11B021EB0C5B300F9E350 /* ArtWorkDetailTableViewCell.swift in Sources */,
-				F76BBBF41EA8695900FD5759 /* ArtWorkFilteredViewModel.swift in Sources */,
 				F7B8B53A1EA0C7ED005C7474 /* BaseView.swift in Sources */,
+				F7DFF48D1F836712000C01CA /* BaseNavigationController.swift in Sources */,
+				F797912F1F84BCA20055EACF /* ArtWorkSectionViewModel.swift in Sources */,
 				F78308871EBF2DA200DBAA6B /* DPArrowMenuViewModel.swift in Sources */,
 				F78308851EBF2DA200DBAA6B /* DPArrowMenu.swift in Sources */,
 				F745A24B1EBC5A3E00A5CBAA /* PhotoPickerActionSheet.swift in Sources */,
@@ -680,7 +694,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -688,7 +704,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -730,7 +750,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -738,7 +760,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -784,7 +810,7 @@
 				PROVISIONING_PROFILE = "b291a538-a8c2-4cf2-99da-363dfa9e17dd";
 				PROVISIONING_PROFILE_SPECIFIER = GoGoTattooDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "gogo-ios/gogo-ios-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -810,7 +836,7 @@
 				PROVISIONING_PROFILE = "db28677a-2157-498a-92ec-758cdbf1de6e";
 				PROVISIONING_PROFILE_SPECIFIER = GoGoTattooDis;
 				SWIFT_OBJC_BRIDGING_HEADER = "gogo-ios/gogo-ios-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

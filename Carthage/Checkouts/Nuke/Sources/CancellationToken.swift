@@ -9,9 +9,9 @@ import Foundation
 /// All `CancellationTokenSource` methods are thread safe.
 public final class CancellationTokenSource {
     public private(set) var isCancelling = false
-    private var observers = [(Void) -> Void]()
+    private var observers = [() -> Void]()
     private let lock: Lock
-    
+
     /// Creates a new token associated with the source.
     public var token: CancellationToken {
         return CancellationToken(source: self)
@@ -21,15 +21,15 @@ public final class CancellationTokenSource {
     public init() {
         self.lock = Lock()
     }
-    
+
     /// Allows to create cts with a shared lock to avoid excessive allocations.
     /// This is tricky to use thus `internal` access modifier.
     internal init(lock: Lock) {
         self.lock = lock
     }
     internal static let lock = Lock()
-    
-    fileprivate func register(_ closure: @escaping (Void) -> Void) {
+
+    fileprivate func register(_ closure: @escaping () -> Void) {
         if isCancelling { closure(); return } // fast pre-lock check
         lock.sync {
             if isCancelling {
@@ -74,5 +74,5 @@ public struct CancellationToken {
     /// and synchronously.
     /// - warning: Make sure that you don't capture token inside a closure to
     /// avoid retain cycles.
-    public func register(closure: @escaping (Void) -> Void) { source.register(closure) }
+    public func register(closure: @escaping () -> Void) { source.register(closure) }
 }

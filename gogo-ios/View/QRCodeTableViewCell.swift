@@ -10,28 +10,27 @@ import UIKit
 import QRCode
 
 class QRCodeTableViewCell: UITableViewCell {
-
-    @IBOutlet weak var urlLabel: UILabel!
-    @IBOutlet weak var QRImageView: UIImageView!
+  
+  @IBOutlet weak var urlLabel: UILabel!
+  @IBOutlet weak var QRImageView: UIImageView!
+  
+  override func awakeFromNib() {
+    super.awakeFromNib()
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+  }
+  
+  func bindData(urlString: String, index: Int) {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
+    self.urlLabel.text = urlString
+    let qrCode = QRCode(urlString)
+    self.QRImageView.image = qrCode?.image
     
-    func bindData(urlString: String, index: Int) {
-        
-        self.urlLabel.text = urlString
-        let qrCode = QRCode(urlString)
-        self.QRImageView.image = qrCode?.image
-        
-        if let url = URL(string: urlString), let image = qrCode?.image {
-            MainManager.sharedInstance.cacheImage(url: url, image: image)
-            MainManager.sharedInstance.artWorkDetailCellHeightArray[index] = 380
-        }
+    if let url = URL(string: urlString), let image = qrCode?.image {
+      MainManager.sharedInstance.cacheImage(url: url, image: image)
     }
-    
+  }
+  
 }

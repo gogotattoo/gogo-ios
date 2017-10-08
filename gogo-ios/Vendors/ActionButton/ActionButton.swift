@@ -148,7 +148,7 @@ open class ActionButton: NSObject {
     }
     
     //MARK: - Button Actions Methods
-    func buttonTapped(_ sender: UIControl) {
+  @objc func buttonTapped(_ sender: UIControl) {
         animatePressingWithScale(1.0)
         
         if let unwrappedAction = self.action {
@@ -156,12 +156,12 @@ open class ActionButton: NSObject {
         }
     }
     
-    func buttonTouchDown(_ sender: UIButton) {
+  @objc func buttonTouchDown(_ sender: UIButton) {
         animatePressingWithScale(0.9)
     }
     
-    //MARK: - Gesture Recognizer Methods
-    func backgroundTapped(_ gesture: UIGestureRecognizer) {
+  //MARK: - Gesture Recognizer Meth@objc ods
+  @objc func backgroundTapped(_ gesture: UIGestureRecognizer) {
         if self.active {
             self.toggle()
         }

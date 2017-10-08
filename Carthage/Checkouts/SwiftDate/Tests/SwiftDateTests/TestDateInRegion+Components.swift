@@ -45,6 +45,21 @@ class TestDateInRegion_Components: XCTestCase {
 		}
 	}
 	
+	func testComponentsSum() {
+		let date = Date()
+		let date_1 = (date - (1.hour + 1.minute))
+		let timeInterval_1 = date_1 - date
+		XCTAssertEqual(timeInterval_1, -3660, "Failed sum date components")
+		
+		let date_2 = (date - (61.minute))
+		let timeInterval_2 = date_2 - date
+		XCTAssertEqual(timeInterval_2, -3660, "Failed sum date components")
+		
+		let date_3 = (date - (1.hour && 1.minute))
+		let timeInterval_3 = date_3 - date
+		XCTAssertEqual(timeInterval_3, -3660, "Failed sum date components")
+	}
+	
 	func testDifferentRegionComponents_YWD() {
 		let c: [Calendar.Component : Int] = [.era: 1, .yearForWeekOfYear: 2, .weekOfYear: 3, .weekday: 4]
 		let date = DateInRegion(components: c, fromRegion: nil)!
@@ -284,14 +299,85 @@ class TestDateInRegion_Components: XCTestCase {
 		XCTAssertEqual("2012-04-05T23:59:59+02:00", endOfDay.iso8601(), "Failed to generate a valid date from Alt RSS format")
 	}
 	
-	func test_nextPrevMonth() {
-		let date = DateInRegion(string: "2012-04-05 15:30:00", format: .custom("yyyy-MM-dd HH:mm:ss"), fromRegion: rome)!
+	func test_nextPrevTimeComponents() {
+		let gmt = Region(tz: TimeZoneName.gmt, cal: CalendarName.gregorian, loc: LocaleName.english)
+		let startDate = DateInRegion(string: "2017-07-16 16:00:00 +0000", format: .iso8601Auto, fromRegion: gmt)!
 		
-		let nextMonth = date.nextMonth
-		let prevMonth = date.prevMonth
+		// Next Month at end
+		let strings_atend = [
+			"2017-07-31T23:59:59Z",
+			"2017-08-31T23:59:59Z",
+			"2017-09-30T23:59:59Z",
+			"2017-10-31T23:59:59Z",
+			"2017-11-30T23:59:59Z",
+			"2017-12-31T23:59:59Z",
+			"2018-01-31T23:59:59Z",
+			"2018-02-28T23:59:59Z",
+			"2018-03-31T23:59:59Z",
+			"2018-04-30T23:59:59Z"
+		]
+		var nextMonth = startDate.prevMonth(at: .end)
+		for x in 0..<strings_atend.count {
+			nextMonth = nextMonth.nextMonth(at: .end)
+			XCTAssertEqual(strings_atend[x], nextMonth.iso8601(), "Failed to generate next valid month at beginning")
+		}
 		
-		XCTAssertEqual("2012-05-05T00:00:00+02:00", nextMonth.iso8601(), "Failed to generate a valid date from Alt RSS format")
-		XCTAssertEqual("2012-03-05T00:00:00+01:00", prevMonth.iso8601(), "Failed to generate a valid date from Alt RSS format")
+		// Next Month at start
+		let strings_atstart = [
+			"2017-07-01T00:00:00Z",
+			"2017-08-01T00:00:00Z",
+			"2017-09-01T00:00:00Z",
+			"2017-10-01T00:00:00Z",
+			"2017-11-01T00:00:00Z",
+			"2017-12-01T00:00:00Z",
+			"2018-01-01T00:00:00Z",
+			"2018-02-01T00:00:00Z",
+			"2018-03-01T00:00:00Z",
+			"2018-04-01T00:00:00Z"
+		]
+		var nextMonthAtStart = startDate.prevMonth(at: .start)
+		for x in 0..<strings_atstart.count{
+			nextMonthAtStart = nextMonthAtStart.nextMonth(at: .start)
+			XCTAssertEqual(strings_atstart[x], nextMonthAtStart.iso8601(), "Failed to generate next valid month at end")
+		}
+		
+		// Next Week at start
+		let strings_w_atstart = [
+			"2017-07-16T00:00:00Z",
+			"2017-07-23T00:00:00Z",
+			"2017-07-30T00:00:00Z",
+			"2017-08-06T00:00:00Z",
+			"2017-08-13T00:00:00Z",
+			"2017-08-20T00:00:00Z",
+			"2017-08-27T00:00:00Z",
+			"2017-09-03T00:00:00Z",
+			"2017-09-10T00:00:00Z",
+			"2017-09-17T00:00:00Z"
+		]
+		var nextWeek = startDate.prevWeek(at: .start)
+		for x in 0..<10 {
+			nextWeek = nextWeek.nextWeek(at: .start)
+			XCTAssertEqual(strings_w_atstart[x], nextWeek.iso8601(), "Failed to generate next valid month at end")
+		}
+		
+		// Next Week at end
+		let strings_w_atend = [
+			"2017-07-22T23:59:59Z",
+			"2017-07-29T23:59:59Z",
+			"2017-08-05T23:59:59Z",
+			"2017-08-12T23:59:59Z",
+			"2017-08-19T23:59:59Z",
+			"2017-08-26T23:59:59Z",
+			"2017-09-02T23:59:59Z",
+			"2017-09-09T23:59:59Z",
+			"2017-09-16T23:59:59Z",
+			"2017-09-23T23:59:59Z"
+		]
+		var nextWeek_end = startDate.prevWeek(at: .start)
+		for x in 0..<10 {
+			nextWeek_end = nextWeek_end.nextWeek(at: .end)
+			XCTAssertEqual(strings_w_atend[x], nextWeek_end.iso8601(), "Failed to generate next valid month at end")
+		}
 	}
 	
 	func test_atTime() {
@@ -336,8 +422,10 @@ class TestDateInRegion_Components: XCTestCase {
 		let diffInMinutes = abs((date2 - date1).in(.minute)!)
 		XCTAssertEqual(diffInMinutes, 10, "Failed to get diff in minutes between two dates")
 
-		let diffInBoth = (date1 - date2).in([.second, .minute])
-		XCTAssertTrue(diffInBoth[.minute] == 10 && diffInBoth[.second] == 5, "Failed to get diff in several components between two dates")
+		let diffInBoth = (date2 - date1).in([.second, .minute])
+		let diff_min = diffInBoth[.minute]
+		let diff_sec = diffInBoth[.second]
+		XCTAssertTrue(diff_min == 10 && diff_sec == 5, "Failed to get diff in several components between two dates")
 		
 		let diffInSecondsRev = abs((date1 - date2).in(.second)!)
 		XCTAssertEqual(diffInSecondsRev, 605, "Failed to get diff in seconds between two dates (reversed)")

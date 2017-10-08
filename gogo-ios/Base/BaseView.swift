@@ -9,14 +9,14 @@
 import UIKit
 
 class BaseView: UIView {
-    
-    // MARK: Response chain
-    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        let currentResponderView = super.hitTest(point, with: event)
-        if currentResponderView == nil {
-            
-        }
-        return currentResponderView
+  
+  // MARK: Response chain
+  override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    let currentResponderView = super.hitTest(point, with: event)
+    if currentResponderView == nil {
+      
     }
-
+    return currentResponderView
+  }
+  
 }

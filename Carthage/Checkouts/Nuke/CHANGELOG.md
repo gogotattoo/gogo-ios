@@ -1,3 +1,14 @@
+## Nuke 5.2
+
+Add support for both Swift 3.2 and 4.0.
+
+## Nuke 5.1.1
+
+- Fix Swift 4 warnings
+- Add `DataDecoder.sharedUrlCache` to easy access for shared `URLCache` object
+- Add references to [RxNuke](https://github.com/kean/RxNuke)
+- Minor improvements under the hood
+
 
 ## Nuke 5.1
 

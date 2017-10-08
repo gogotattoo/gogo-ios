@@ -9,7 +9,7 @@ import Foundation
 /// Schedules execution of the given closures.
 public protocol Scheduler {
     /// Schedules execution of the given closure.
-    func execute(token: CancellationToken?, closure: @escaping (Void) -> Void)
+    func execute(token: CancellationToken?, closure: @escaping () -> Void)
 }
 
 /// Schedules execution of asynchronous work which is considered
@@ -17,7 +17,7 @@ public protocol Scheduler {
 public protocol AsyncScheduler {
     /// Schedules execution of asynchronous work which is considered
     /// finished when `finish` closure is called.
-    func execute(token: CancellationToken?, closure: @escaping (_ finish: @escaping (Void) -> Void) -> Void)
+    func execute(token: CancellationToken?, closure: @escaping (_ finish: @escaping () -> Void) -> Void)
 }
 
 // MARK: - DispatchQueueScheduler
@@ -25,7 +25,7 @@ public protocol AsyncScheduler {
 /// A scheduler that executes work on the underlying `DispatchQueue`.
 public final class DispatchQueueScheduler: Scheduler {
     public let queue: DispatchQueue
-    
+
     /// Initializes the `DispatchQueueScheduler` with the given queue.
     public init(queue: DispatchQueue) {
         self.queue = queue
@@ -33,7 +33,7 @@ public final class DispatchQueueScheduler: Scheduler {
 
     /// Executes the given closure asynchronously on the underlying queue.
     /// The scheduler automatically reacts to the token cancellation.
-    public func execute(token: CancellationToken?, closure: @escaping (Void) -> Void) {
+    public func execute(token: CancellationToken?, closure: @escaping () -> Void) {
         if token?.isCancelling == true {
             return
         }
@@ -68,7 +68,7 @@ public final class OperationQueueScheduler: AsyncScheduler {
     /// by wrapping the closure in the asynchronous operation. The operations
     /// gets finished when the given `finish` closure is called.
     /// The scheduler automatically reacts to the token cancellation.
-    public func execute(token: CancellationToken?, closure: @escaping (_ finish: @escaping (Void) -> Void) -> Void) {
+    public func execute(token: CancellationToken?, closure: @escaping (_ finish: @escaping () -> Void) -> Void) {
         if token?.isCancelling == true {
             return
         }
@@ -92,7 +92,7 @@ private final class Operation: Foundation.Operation {
         }
     }
     private var _isExecuting = false
-    
+
     override var isFinished: Bool {
         get { return _isFinished }
         set {
@@ -102,25 +102,25 @@ private final class Operation: Foundation.Operation {
         }
     }
     var _isFinished = false
-    
-    let starter: (_ finish: @escaping (Void) -> Void) -> Void
+
+    let starter: (_ finish: @escaping () -> Void) -> Void
     let queue = DispatchQueue(label: "com.github.kean.Nuke.Operation")
-        
-    init(starter: @escaping (_ fulfill: @escaping (Void) -> Void) -> Void) {
+
+    init(starter: @escaping (_ fulfill: @escaping () -> Void) -> Void) {
         self.starter = starter
     }
-    
+
     override func start() {
         queue.sync {
             isExecuting = true
             DispatchQueue.global().async {
-                self.starter() { [weak self] in
+                self.starter { [weak self] in
                     self?.finish()
                 }
             }
         }
     }
-    
+
     func finish() {
         queue.sync {
             if !isFinished {
@@ -149,8 +149,8 @@ public final class RateLimiter: AsyncScheduler {
     private var pendingItems = [Item]()
     private var isExecutingPendingItems = false
 
-    private typealias Item = (CancellationToken?, (@escaping (Void) -> Void) -> Void)
-    
+    private typealias Item = (CancellationToken?, (@escaping () -> Void) -> Void)
+
     /// Initializes the `RateLimiter` with the given scheduler and configuration.
     /// - parameter scheduler: Underlying scheduler which `RateLimiter` uses
     /// to execute items.
@@ -161,8 +161,8 @@ public final class RateLimiter: AsyncScheduler {
         self.scheduler = scheduler
         self.bucket = TokenBucket(rate: Double(rate), burst: Double(burst))
     }
-    
-    public func execute(token: CancellationToken?, closure: @escaping (@escaping (Void) -> Void) -> Void) {
+
+    public func execute(token: CancellationToken?, closure: @escaping (@escaping () -> Void) -> Void) {
         if token?.isCancelling == true { // quick pre-lock check
             return
         }
@@ -174,7 +174,7 @@ public final class RateLimiter: AsyncScheduler {
             }
         }
     }
-    
+
     private func execute(_ item: Item) -> Bool {
         if item.0?.isCancelling == true {
             return true // no need to execute cancelling items
@@ -183,7 +183,7 @@ public final class RateLimiter: AsyncScheduler {
             scheduler.execute(token: item.0, closure: item.1)
         }
     }
-    
+
     private func setNeedsExecutePendingItems() {
         guard !isExecutingPendingItems else { return }
         isExecutingPendingItems = true
@@ -191,7 +191,7 @@ public final class RateLimiter: AsyncScheduler {
             self?.executePendingItems()
         }
     }
-    
+
     private func executePendingItems() {
         while let item = pendingItems.last, execute(item) {
             pendingItems.removeLast()
@@ -207,7 +207,7 @@ public final class RateLimiter: AsyncScheduler {
         private let burst: Double // maximum bucket size
         private var bucket: Double
         private var timestamp: TimeInterval // last refill timestamp
-        
+
         /// - parameter rate: Rate (tokens/second) at which bucket is refilled.
         /// - parameter burst: Bucket size (maximum number of tokens).
         init(rate: Double = 30.0, burst: Double = 15.0) {
@@ -216,9 +216,9 @@ public final class RateLimiter: AsyncScheduler {
             self.bucket = burst
             self.timestamp = CFAbsoluteTimeGetCurrent()
         }
-        
+
         /// Returns `true` if the closure was executed, `false` if dropped.
-        func execute(closure: (Void) -> Void) -> Bool {
+        func execute(closure: () -> Void) -> Bool {
             refill()
             guard bucket >= 1.0 else {
                 return false // bucket is empty
@@ -227,7 +227,7 @@ public final class RateLimiter: AsyncScheduler {
             closure()
             return true
         }
-        
+
         private func refill() {
             let now = CFAbsoluteTimeGetCurrent()
             bucket += rate * max(0, now - timestamp) // rate * (time delta)

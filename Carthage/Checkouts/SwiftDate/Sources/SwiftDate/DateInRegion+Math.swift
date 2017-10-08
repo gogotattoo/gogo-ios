@@ -42,23 +42,23 @@ extension DateInRegion {
 			cmps.calendar!.locale = region!.locale
 			cmps.timeZone = region!.timeZone
 		}
-		values.forEach { key,value in
-			if key != .timeZone && key != .calendar {
-				cmps.setValue( (multipler == nil ? value : value * multipler!), for: key)
+		values.forEach { pair in
+			if pair.key != .timeZone && pair.key != .calendar {
+				cmps.setValue( (multipler == nil ? pair.value : pair.value * multipler!), for: pair.key)
 			}
 		}
 		return cmps
 	}
 	
 	
-	/// Create a new DateInRegion by adding specified DateComponents to self
+	/// Create a new DateInRegion by adding specified DateComponents to self.
+	/// If fails it return `nil`o object.
 	///
 	/// - Parameter dateComponents: date components to add
 	/// - Returns: a new instance of DateInRegion expressed in same region
-	/// - Throws: throw `.FailedToCalculate` if new date cannot be evaluated due to wrong components passed
-	public func add(components dateComponents: DateComponents) throws -> DateInRegion {
+	public func add(components dateComponents: DateComponents) -> DateInRegion? {
 		let newDate = self.region.calendar.date(byAdding: dateComponents, to: self.absoluteDate)
-		if newDate == nil { throw DateError.FailedToCalculate }
+		if newDate == nil { return nil }
 		return DateInRegion(absoluteDate: newDate!, in: self.region)
 	}
 	
@@ -66,26 +66,27 @@ extension DateInRegion {
 	/// Enumerate dates between two intervals by adding specified time components and return an array of dates.
 	/// `startDate` interval will be the first item of the resulting array. The last item of the array is evaluated automatically.
 	///
-	/// - throws: throw `.DifferentCalendar` if dates are expressed in a different calendar,
-	///
 	/// - Parameters:
 	///   - startDate: starting date
 	///   - endDate: ending date
 	///   - components: components to add
 	///	  - normalize: normalize both start and end date at the start of the specified component (if nil, normalization is skipped)
 	/// - Returns: an array of DateInRegion objects
-	public static func dates(between startDate: DateInRegion, and endDate: DateInRegion, increment components: DateComponents) throws -> [DateInRegion] {
+	public static func dates(between startDate: DateInRegion, and endDate: DateInRegion, increment components: DateComponents) -> [DateInRegion]? {
 		guard startDate.region.calendar == endDate.region.calendar else {
-			throw DateError.DifferentCalendar
+			return nil
 		}
 
-		var dates = [startDate]
+		var dates: [DateInRegion] = []
 		var currentDate = startDate
 		
-		repeat {
-			currentDate = try currentDate.add(components: components)
+		while (currentDate <= endDate) {
 			dates.append(currentDate)
-		} while (currentDate <= endDate)
+			guard let c_date = currentDate.add(components: components) else {
+				return nil
+			}
+			currentDate = c_date
+		}
 		
 		return dates
 	}
@@ -136,20 +137,11 @@ public func + (lhs: DateInRegion, rhs: [Calendar.Component : Int]) -> DateInRegi
 
 public func - (lhs: DateInRegion, rhs: [Calendar.Component : Int]) -> DateInRegion {
 	var invertedCmps: [Calendar.Component : Int] = [:]
-	rhs.forEach { invertedCmps[$0] = -$1 }
+	rhs.forEach { invertedCmps[$0.key] = -$0.value }
 	return lhs + invertedCmps
 }
 
 public func - (lhs: DateInRegion, rhs: DateInRegion) -> TimeInterval {
-	var interval: TimeInterval = 0
-	if #available(iOS 10.0, *) {
-		if lhs.absoluteDate < rhs.absoluteDate {
-			interval = -(DateTimeInterval(start: lhs.absoluteDate, end: rhs.absoluteDate)).duration
-		} else {
-			interval = (DateTimeInterval(start: rhs.absoluteDate, end: lhs.absoluteDate)).duration
-		}
-	} else {
-		interval = rhs.absoluteDate.timeIntervalSince(lhs.absoluteDate)
-	}
-	return interval
+	return DateTimeInterval(start: rhs.absoluteDate, end: lhs.absoluteDate).duration
+
 }

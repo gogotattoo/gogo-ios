@@ -9,10 +9,10 @@
 import Foundation
 
 protocol Copyable {
-    func copy() -> Self
+  func copy() -> Self
 }
 
 protocol Realmable {
-    func syncViewModelToModel()
-    func syncModelToViewModel()
+  func syncViewModelToModel()
+  func syncModelToViewModel()
 }

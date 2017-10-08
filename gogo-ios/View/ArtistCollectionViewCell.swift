@@ -9,58 +9,53 @@
 import UIKit
 import Nuke
 
+let kArtistCollectionViewCellReuseID = "ArtistCollectionViewCell"
+
 class ArtistCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var avatarImageView: UIImageView!
-    fileprivate var artistViewModel: ArtistViewModel?
-    var longPressActionCallBack:(()->Void)?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.avatarImageView.layoutIfNeeded()
-        self.avatarImageView.layer.cornerRadius = self.avatarImageView.bounds.width / 2
-        self.avatarImageView.layer.masksToBounds = true
-        let longPressGestureRecognizer: UILongPressGestureRecognizer = UILongPressGestureRecognizer(target: self,
-                                                                                                    action: #selector(self.handleLongPress(sender:)))
-        self.avatarImageView.isUserInteractionEnabled = true
-        self.avatarImageView.addGestureRecognizer(longPressGestureRecognizer)
+  
+  @IBOutlet weak var avatarImageView: UIImageView!
+  fileprivate var artistViewModel: ArtistViewModel?
+  
+  // MARK: Life Cycle
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    self.basicUI()
+  }
+  
+  // MARK: UI
+  func basicUI() {
+    self.avatarImageView.layoutIfNeeded()
+    self.avatarImageView.layer.cornerRadius = self.avatarImageView.bounds.width / 2.0
+    self.avatarImageView.layer.masksToBounds = true
+    self.avatarImageView.image = UIImage(named: "place_holder")
+  }
+  
+  func updateUI() {
+    guard let artistViewModel = self.artistViewModel else { return }
+    if artistViewModel.selectedArtist {
+      self.avatarImageView.layer.borderWidth = 2
+      self.avatarImageView.layer.borderColor = Palette.persianGreen.cgColor
+    } else {
+      self.avatarImageView.layer.borderWidth = 0
+      self.avatarImageView.layer.borderColor = UIColor.clear.cgColor
     }
-    
-    @objc fileprivate func handleLongPress(sender: UILongPressGestureRecognizer) {
-        if sender.state == .ended {
-            if self.artistViewModel != nil {
-                self.artistViewModel!.setSelectedArtist(selectedArtist: true)
-                MainManager.sharedInstance.uploadArtistName = self.artistViewModel!.link
-            }
-            self.updateUI()
-            self.longPressActionCallBack?()
-        }
-    }
-    
-    func bindData(artistViewModel: ArtistViewModel) {
-        self.artistViewModel = artistViewModel
-        if artistViewModel.avatarIPFS == "" {
-            self.avatarImageView.image = UIImage(named: "DemoPic")
+  }
+  
+  // MARK: React
+  func bindData(_ artistViewModel: ArtistViewModel) {
+    self.artistViewModel = artistViewModel
+    let imageURLString = Constant.Network.imageHost + artistViewModel.avatarIPFS
+    if let url = URL(string: imageURLString) {
+      Manager.shared.loadImage(with: Request(url: url)) {
+        (result) in
+        if let image = result.value {
+          self.avatarImageView.image = image
         } else {
-            let imageURLString = Constant.Network.imageHost + artistViewModel.avatarIPFS
-            Manager.shared.loadImage(with: Request(url: URL(string: imageURLString)!)) {
-                (result) in
-                let image = result.value
-                self.avatarImageView.image = image
-            }
+          self.avatarImageView.image = UIImage(named: "place_holder")
         }
-        self.updateUI()
+      }
+      self.updateUI()
     }
-    
-    func updateUI() {
-        if self.artistViewModel == nil { return }
-        if self.artistViewModel!.selectedArtist {
-            self.avatarImageView.layer.borderWidth = 2
-            self.avatarImageView.layer.borderColor = Palette.persianGreen.cgColor
-        } else {
-            self.avatarImageView.layer.borderWidth = 0
-            self.avatarImageView.layer.borderColor = UIColor.clear.cgColor
-        }
-    }
-    
+  }
+  
 }

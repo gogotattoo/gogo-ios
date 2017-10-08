@@ -6,356 +6,227 @@
 //  Copyright © 2017 Hongli Yu. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Alamofire
 import SwiftDate
 import Nuke
-import Toucan
-import NukeToucanPlugin
-import Alamofire
-
-public enum ArtistType: String {
-    
-    case artwork = "artwork"
-    case tattoo = "tattoo"
-    case henna = "henna"
-    case piercing = "piercing"
-    case design = "design"
-    case dreadlocks = "dreadlocks"
-
-}
 
 final class MainManager {
-    
-    static let sharedInstance = MainManager()
-    fileprivate var dataManager: DataManager = DataManager()
-    
-    fileprivate(set) var artistViewModels: Array<ArtistViewModel>?
-    fileprivate(set) var currentArtistViewModel: ArtistViewModel?
-    fileprivate(set) var currentArtistType: ArtistType = .tattoo // default value is tattoo
-    
-    // current tableview data source: tattoo, design, henna, piercing, dreadlocks, for the last request API
-    fileprivate(set) var artWorkViewModels: Array<AnyObject>?
-    // current tableview data source: tattoo, design, henna, piercing, dreadlocks, and sectionTitle
-    fileprivate(set) var currentArtWorkFilteredViewModels: Array<ArtWorkFilteredViewModel>?
-    // collect all data from all (tattoo, design, henna, piercing, dreadlocks) API from Srever
-    // each ArtWorkFilteredListViewModel element refer to service item in artistViewModel
-    fileprivate(set) var allArtWorkFilteredListViewModels: Array<ArtWorkFilteredListViewModel> = []
-    
-    fileprivate(set) var selectedArtWork: AnyObject?
-    var artWorkDetailCellHeightArray: [CGFloat] = []
-    // TODO: need realm image object, with image hash & computed present height
+  
+  static let sharedInstance = MainManager()
+  fileprivate var dataManager: DataManager = DataManager()
+  
+  fileprivate(set) var artistViewModels: [ArtistViewModel]?
+  fileprivate(set) var currentArtistViewModel: ArtistViewModel?
+  fileprivate(set) var currentArtType: ArtType = .tattoo // default value is tattoo
+  
+  fileprivate(set) var artWorkViewModels: [Any]? // raw data
+  fileprivate(set) var artWorkSectionViewModels: [ArtWorkSectionViewModel]? // current tableview datasource
+  fileprivate(set) var artWorkMatrixViewModels: [ArtWorkMatrixViewModel]? // all data source for this page
+  
+  fileprivate(set) var selectedArtWork: Any?
+  
+  // upload
+  var uploadArtistName: String = ""
+  var uploadArtType: ArtType = ArtType.tattoo
+  var uploadArtWorkViewModel: ArtWorkViewModel?
+  
+  // MARK: Setter
+  func setCurrentArtType(artType: ArtType) {
+    self.currentArtType = artType
+  }
+  
+  // MARK: Computed Properties
+  var selectedArtTypeIndex: Int {
+    guard let currentArtistViewModel = self.currentArtistViewModel else { return 0 }
+    if let index = currentArtistViewModel.services.index(of: self.currentArtType.rawValue) {
+      return index
+    }
+    return 0
+  }
+  
+  // MARK: Artist
+  func requestArtistList(completion: @escaping (_ result: Array<ArtistViewModel>?, _ error: NSError?)->()?) {
+    self.dataManager.requestArtistList() {
+      (result, error) -> Void in
+      if error != nil {
+        completion(nil, error)
+        return
+      }
+      if result != nil {
+        self.artistViewModels = result!
+        completion(result, nil)
+      }
+    }
+  }
+  
+  // MARK: ArtWorkList
+  func requestArtWorkList(_ artist: String, completion: @escaping (_ result: [ArtWorkMatrixViewModel]?, _ error: NSError?)->()?) {
+    guard let currentArtistViewModel = self.currentArtistViewModel else { return }
+    self.dataManager.requestArtWorkList(artist, artType: self.currentArtType, artistLink: currentArtistViewModel.link) {
+      (result, error) -> Void in
+      if error != nil {
+        completion(nil, error)
+        return
+      }
+      if result != nil {
+        self.dataManager.dataQueue.async(flags: .barrier, execute: {
+          self.artWorkViewModels = result!
 
-    // upload
-    var uploadArtistName: String = ""
-    var uploadArtistType: ArtistType = ArtistType.tattoo
-    var uploadArtWorkViewModel: ArtWorkViewModel?
-    
-    // MARK: Setter
-    func setCurrentArtistType(artistType: ArtistType) {
-        self.currentArtistType = artistType
-    }
-    
-    func getCurrentArtistType() -> ArtistType {
-        return self.currentArtistType
-    }
-    
-    // MARK: Computed Properties
-    var currentArtWorkFilteredListViewModel: ArtWorkFilteredListViewModel {
-        for artWorkFilteredListViewModel: ArtWorkFilteredListViewModel in self.allArtWorkFilteredListViewModels {
-            if artWorkFilteredListViewModel.artistType == getCurrentArtistType() {
-                return artWorkFilteredListViewModel
-            }
-        }
-        return ArtWorkFilteredListViewModel()
-    }
-
-    var selectedIndex: Int {
-        if self.currentArtistViewModel == nil {
-            return 0
-        }
-        if let index = self.currentArtistViewModel!.services.index(of: getCurrentArtistType().rawValue) {
-            return index
-        }
-        return 0
-    }
-    
-    // MARK: Request
-    func requestArtistList(completion: @escaping (_ result: Array<ArtistViewModel>?, _ error: NSError?)->()?) {
-        self.dataManager.requestArtistList() {
-            (result, error) -> Void in
-            if error != nil {
-                completion(nil, error)
-                return
-            }
-            if result != nil {
-                self.artistViewModels = result!
-                completion(result, nil)
-            }
-        }
-    }
-    
-    func requestArtWorkList(_ artist: String, completion:
-        @escaping (_ result: Array<ArtWorkFilteredListViewModel>?,
-        _ error: NSError?)->()?) {
-        self.dataManager.requestArtWorkList(artist, artistType: self.currentArtistType,
-                                            artistLink: self.currentArtistViewModel!.link) {
-            (result, error) -> Void in
-            if error != nil {
-                completion(nil, error)
-                return
-            }
-            if result != nil {
-                // section title & sorting
-                self.dataManager.dataQueue.async(flags: .barrier, execute: {
-                    self.artWorkViewModels = result!
-                    // TODO: optimize
-                    switch self.currentArtistType {
-                    case .artwork:
-                        break
-                    case .tattoo:
-                        var artWorkViewModels = self.artWorkViewModels as! Array<TattooViewModel>
-                        // generate FilteredViewModels in art work
-                        self.currentArtWorkFilteredViewModels = []
-                        
-                        while artWorkViewModels.count > 0 {
-                            let filteredSectionTitle = artWorkViewModels.first!.date.string(format: DateFormat.custom("yyyy-MM"))
-                            let filteredArtWorkViewModels = artWorkViewModels.filter {
-                                $0.date.string(format: DateFormat.custom("yyyy-MM")) == filteredSectionTitle
-                            }
-                            let artWorkFilteredViewModel: ArtWorkFilteredViewModel = ArtWorkFilteredViewModel(sectionTitle: filteredSectionTitle,
-                                                                                                              artWorkViewModels: filteredArtWorkViewModels)
-                            if !self.currentArtWorkFilteredViewModels!.contains(artWorkFilteredViewModel) {
-                                self.currentArtWorkFilteredViewModels!.append(artWorkFilteredViewModel)
-                            }
-                            artWorkViewModels = artWorkViewModels.filter { !filteredArtWorkViewModels.contains($0) }
-                        }
-                        let artWorkFilteredListViewModel: ArtWorkFilteredListViewModel = ArtWorkFilteredListViewModel(artistType: self.currentArtistType,
-                                                                                                                      artWorkFilteredViewModels: self.currentArtWorkFilteredViewModels!)
-                        if self.allArtWorkFilteredListViewModels.contains(artWorkFilteredListViewModel) {
-                            let index: Int = self.allArtWorkFilteredListViewModels.index(of: artWorkFilteredListViewModel)! // force to update
-                            self.allArtWorkFilteredListViewModels[index] = artWorkFilteredListViewModel
-                        }
-                        completion(self.allArtWorkFilteredListViewModels, nil)
-                        break
-                    case .henna:
-                        var artWorkViewModels = self.artWorkViewModels as! Array<HennaViewModel>
-                        // generate FilteredViewModels in art work
-                        self.currentArtWorkFilteredViewModels = []
-                        
-                        while artWorkViewModels.count > 0 {
-                            let filteredSectionTitle = artWorkViewModels.first!.date.string(format: DateFormat.custom("yyyy-MM"))
-                            let filteredArtWorkViewModels = artWorkViewModels.filter {
-                                $0.date.string(format: DateFormat.custom("yyyy-MM")) == filteredSectionTitle
-                            }
-                            let artWorkFilteredViewModel: ArtWorkFilteredViewModel = ArtWorkFilteredViewModel(sectionTitle: filteredSectionTitle,
-                                                                                                              artWorkViewModels: filteredArtWorkViewModels)
-                            if !self.currentArtWorkFilteredViewModels!.contains(artWorkFilteredViewModel) {
-                                self.currentArtWorkFilteredViewModels!.append(artWorkFilteredViewModel)
-                            }
-                            artWorkViewModels = artWorkViewModels.filter { !filteredArtWorkViewModels.contains($0) }
-                        }
-                        let artWorkFilteredListViewModel: ArtWorkFilteredListViewModel = ArtWorkFilteredListViewModel(artistType: self.currentArtistType,
-                                                                                                                      artWorkFilteredViewModels: self.currentArtWorkFilteredViewModels!)
-                        if self.allArtWorkFilteredListViewModels.contains(artWorkFilteredListViewModel) {
-                            let index: Int = self.allArtWorkFilteredListViewModels.index(of: artWorkFilteredListViewModel)! // force to update
-                            self.allArtWorkFilteredListViewModels[index] = artWorkFilteredListViewModel
-                        }
-                        completion(self.allArtWorkFilteredListViewModels, nil)
-                        break
-                    case .piercing:
-                        var artWorkViewModels = self.artWorkViewModels as! Array<PiercingViewModel>
-                        // generate FilteredViewModels in art work
-                        self.currentArtWorkFilteredViewModels = []
-                        
-                        while artWorkViewModels.count > 0 {
-                            let filteredSectionTitle = artWorkViewModels.first!.date.string(format: DateFormat.custom("yyyy-MM"))
-                            let filteredArtWorkViewModels = artWorkViewModels.filter {
-                                $0.date.string(format: DateFormat.custom("yyyy-MM")) == filteredSectionTitle
-                            }
-                            let artWorkFilteredViewModel: ArtWorkFilteredViewModel = ArtWorkFilteredViewModel(sectionTitle: filteredSectionTitle,
-                                                                                                              artWorkViewModels: filteredArtWorkViewModels)
-                            if !self.currentArtWorkFilteredViewModels!.contains(artWorkFilteredViewModel) {
-                                self.currentArtWorkFilteredViewModels!.append(artWorkFilteredViewModel)
-                            }
-                            artWorkViewModels = artWorkViewModels.filter { !filteredArtWorkViewModels.contains($0) }
-                        }
-                        let artWorkFilteredListViewModel: ArtWorkFilteredListViewModel = ArtWorkFilteredListViewModel(artistType: self.currentArtistType,
-                                                                                                                      artWorkFilteredViewModels: self.currentArtWorkFilteredViewModels!)
-                        if self.allArtWorkFilteredListViewModels.contains(artWorkFilteredListViewModel) {
-                            let index: Int = self.allArtWorkFilteredListViewModels.index(of: artWorkFilteredListViewModel)! // force to update
-                            self.allArtWorkFilteredListViewModels[index] = artWorkFilteredListViewModel
-                        }
-                        completion(self.allArtWorkFilteredListViewModels, nil)
-                        break
-                    case .design:
-                        var artWorkViewModels = self.artWorkViewModels as! Array<DesignViewModel>
-                        // generate FilteredViewModels in art work
-                        self.currentArtWorkFilteredViewModels = []
-                        
-                        while artWorkViewModels.count > 0 {
-                            let filteredSectionTitle = artWorkViewModels.first!.date.string(format: DateFormat.custom("yyyy-MM"))
-                            let filteredArtWorkViewModels = artWorkViewModels.filter {
-                                $0.date.string(format: DateFormat.custom("yyyy-MM")) == filteredSectionTitle
-                            }
-                            let artWorkFilteredViewModel: ArtWorkFilteredViewModel = ArtWorkFilteredViewModel(sectionTitle: filteredSectionTitle,
-                                                                                                              artWorkViewModels: filteredArtWorkViewModels)
-                            if !self.currentArtWorkFilteredViewModels!.contains(artWorkFilteredViewModel) {
-                                self.currentArtWorkFilteredViewModels!.append(artWorkFilteredViewModel)
-                            }
-                            artWorkViewModels = artWorkViewModels.filter { !filteredArtWorkViewModels.contains($0) }
-                        }
-                        let artWorkFilteredListViewModel: ArtWorkFilteredListViewModel = ArtWorkFilteredListViewModel(artistType: self.currentArtistType,
-                                                                                                                      artWorkFilteredViewModels: self.currentArtWorkFilteredViewModels!)
-                        if self.allArtWorkFilteredListViewModels.contains(artWorkFilteredListViewModel) {
-                            let index: Int = self.allArtWorkFilteredListViewModels.index(of: artWorkFilteredListViewModel)! // force to update
-                            self.allArtWorkFilteredListViewModels[index] = artWorkFilteredListViewModel
-                        }
-                        completion(self.allArtWorkFilteredListViewModels, nil)
-                        break
-                    case .dreadlocks:
-                        var artWorkViewModels = self.artWorkViewModels as! Array<DreadlocksViewModel>
-                        // generate FilteredViewModels in art work
-                        self.currentArtWorkFilteredViewModels = []
-                        
-                        while artWorkViewModels.count > 0 {
-                            let filteredSectionTitle = artWorkViewModels.first!.date.string(format: DateFormat.custom("yyyy-MM"))
-                            let filteredArtWorkViewModels = artWorkViewModels.filter {
-                                $0.date.string(format: DateFormat.custom("yyyy-MM")) == filteredSectionTitle
-                            }
-                            let artWorkFilteredViewModel: ArtWorkFilteredViewModel = ArtWorkFilteredViewModel(sectionTitle: filteredSectionTitle,
-                                                                                                              artWorkViewModels: filteredArtWorkViewModels)
-                            if !self.currentArtWorkFilteredViewModels!.contains(artWorkFilteredViewModel) {
-                                self.currentArtWorkFilteredViewModels!.append(artWorkFilteredViewModel)
-                            }
-                            artWorkViewModels = artWorkViewModels.filter { !filteredArtWorkViewModels.contains($0) }
-                        }
-                        let artWorkFilteredListViewModel: ArtWorkFilteredListViewModel = ArtWorkFilteredListViewModel(artistType: self.currentArtistType,
-                                                                                                                      artWorkFilteredViewModels: self.currentArtWorkFilteredViewModels!)
-                        if self.allArtWorkFilteredListViewModels.contains(artWorkFilteredListViewModel) {
-                            let index: Int = self.allArtWorkFilteredListViewModels.index(of: artWorkFilteredListViewModel)! // force to update
-                            self.allArtWorkFilteredListViewModels[index] = artWorkFilteredListViewModel
-                        }
-                        completion(self.allArtWorkFilteredListViewModels, nil)
-                        break
-                    }
-                })
-                
-            }
-        }
-    }
-    
-    func insertArtWorks(artistType: ArtistType,
-                        artistLink: String,
-                        completion: @escaping (_ result: Bool, _ error: NSError?)->()?) {
-        self.dataManager.dataQueue.async {
-            var artWorkFilteredViewModels: Array<ArtWorkFilteredViewModel> = []
-            var artWorkViewModels: Array<AnyObject> = []
+          // TODO: optimize
+          switch self.currentArtType {
+          case .artwork:
+            break
+          case .tattoo:
+            var artWorkViewModels = self.artWorkViewModels as! [TattooViewModel]
+            self.artWorkSectionViewModels = []
             
-            for allArtWorkFilteredListViewModel in self.allArtWorkFilteredListViewModels {
-                if allArtWorkFilteredListViewModel.artistType == self.getCurrentArtistType() {
-                    artWorkFilteredViewModels = allArtWorkFilteredListViewModel.artWorkFilteredViewModels
-                    for artWorkFilteredViewModel in artWorkFilteredViewModels {
-                        artWorkViewModels = artWorkViewModels + artWorkFilteredViewModel.artWorkViewModels
-                    }
-                }
+            while artWorkViewModels.count > 0 {
+              let sectionTitle = artWorkViewModels.first!.date.string(format: DateFormat.custom("yyyy-MM"))
+              let filteredArtWorkViewModels = artWorkViewModels.filter {
+                $0.date.string(format: DateFormat.custom("yyyy-MM")) == sectionTitle
+              }
+              let artWorkSectionViewModel: ArtWorkSectionViewModel = ArtWorkSectionViewModel(title: sectionTitle, height: 44,
+                                                                                             artWorkViewModels: filteredArtWorkViewModels)
+              if !self.artWorkSectionViewModels!.contains(artWorkSectionViewModel) {
+                self.artWorkSectionViewModels!.append(artWorkSectionViewModel)
+              }
+              artWorkViewModels = artWorkViewModels.filter { !filteredArtWorkViewModels.contains($0) }
             }
-            self.dataManager.insertArtWorks(artistType: artistType, artistLink: artistLink,
-                                            artWorkViewModels: artWorkViewModels) {
-                (result, error) -> Void in
-                if error != nil {
-                    completion(false, error)
-                }
-                if result {
-                    completion(true, nil)
-                }
+            let artWorkMatrixViewModel: ArtWorkMatrixViewModel = ArtWorkMatrixViewModel(artType: self.currentArtType,
+                                                                                        artWorkFilteredViewModels: self.artWorkSectionViewModels!)
+            guard var artWorkMatrixViewModels = self.artWorkMatrixViewModels else { return }
+            if artWorkMatrixViewModels.contains(artWorkMatrixViewModel) {
+              let index: Int = artWorkMatrixViewModels.index(of: artWorkMatrixViewModel)! // force to update
+              artWorkMatrixViewModels[index] = artWorkMatrixViewModel
+            } else {
+              artWorkMatrixViewModels.append(artWorkMatrixViewModel)
             }
-        }
-    }
-    
-    func requestInReviewArtWorks(_ artist: String, artistType: ArtistType, completion:
-        @escaping (_ result: Array<AnyObject>?, _ error: NSError?)->()?) {
-        self.dataManager.requestWipArtWorkList(artist, artistType: artistType) {
-            (result, error) -> Void in
-            if error != nil {
-                completion(nil, error)
-                return
-            }
-            if result != nil {
-                self.artWorkViewModels = result
-                completion(result, nil)
-            }
-        }
-    }
-    
-    func requestIfUploadImageSucceed(path: String, params: Parameters,
-                                     completion: @escaping (_ result: AnyObject?, _ error: NSError?)->()?) {
-        self.dataManager.requestIfUploadImageSucceed(path: path, params: params) {
-            (result, error) -> Void in
-            if error != nil {
-                completion(nil, error)
-            }
-            if result != nil {
-                completion(result, nil)
-            }
-        }
-    }
-    
-    // MARK: Memmory Life Cycle
-    func enterArtWorks(artistViewModelIndex: Int) {
-        
-        // clean data
-        self.allArtWorkFilteredListViewModels.removeAll()
-        self.currentArtWorkFilteredViewModels = nil
-        self.artWorkViewModels = nil
-        self.dataManager.artWorkViewModels = nil
-        
-        // set new data
-        self.currentArtistViewModel = self.artistViewModels?[artistViewModelIndex]
-        // TODO: mutil thread
-        if self.currentArtistViewModel != nil {
-            for service in self.currentArtistViewModel!.services {
-                let artWorkFilteredListViewModel: ArtWorkFilteredListViewModel = ArtWorkFilteredListViewModel(artistType: ArtistType(rawValue: service)!,
-                                                                                                              artWorkFilteredViewModels: Array<ArtWorkFilteredViewModel>())
-                self.allArtWorkFilteredListViewModels.append(artWorkFilteredListViewModel)
-            }
-        }
-        
-    }
-    
-    func exitArtWorks() {
-        self.insertArtWorks(artistType: self.getCurrentArtistType(),
-                            artistLink: self.currentArtistViewModel!.link,
-                            completion: { (result, error) -> Void in
-                                if error != nil {
-                                    
-                                }
-                                if result {
-                                    
-                                }
+            self.artWorkMatrixViewModels = artWorkMatrixViewModels
+            completion(self.artWorkMatrixViewModels, nil)
+            break
+          case .henna:
+            break
+          case .piercing:
+            break
+          case .design:
+            break
+          case .dreadlocks:
+            break
+          }
         })
+      }
     }
-    
-    func enterArtWorkDetail(selectedArtWork: AnyObject) {
-        self.selectedArtWork = selectedArtWork
+  }
+  
+  func insertArtWorks(artType: ArtType, artistLink: String,
+                      completion: @escaping (_ result: Bool, _ error: NSError?)->()?) {
+    self.dataManager.dataQueue.async {
+      var artWorkSectionViewModels: [ArtWorkSectionViewModel] = []
+      var artWorkViewModels: [Any] = []
+      guard let artWorkMatrixViewModels = self.artWorkMatrixViewModels else { return }
+      for artWorkMatrixViewModel in artWorkMatrixViewModels {
+        if artWorkMatrixViewModel.artType == self.currentArtType {
+          artWorkSectionViewModels = artWorkMatrixViewModel.artWorkFilteredViewModels
+          for artWorkSectionViewModel in artWorkSectionViewModels {
+            artWorkViewModels = artWorkViewModels + artWorkSectionViewModel.artWorkViewModels
+          }
+        }
+      }
+      self.dataManager.insertArtWorks(artType: artType, artistLink: artistLink,
+                                      artWorkViewModels: artWorkViewModels) {
+        (result, error) -> Void in
+        if error != nil {
+          completion(false, error)
+          return
+        }
+        if result {
+          completion(true, nil)
+        }
+      }
     }
-    
-    func exitArtWorkDetail() {
-        
+  }
+  
+  func requestInReviewArtWorks(_ artist: String, artType: ArtType, completion:
+    @escaping (_ result: [Any]?, _ error: NSError?)->()?) {
+    self.dataManager.requestWipArtWorkList(artist, artType: artType) {
+      (result, error) -> Void in
+      if error != nil {
+        completion(nil, error)
+        return
+      }
+      if result != nil {
+        self.artWorkViewModels = result
+        completion(result, nil)
+      }
     }
-    
-    func cacheImage(url: URL, image: UIImage) {
-//        Cache.shared.costLimit = 1024 * 1024 * 100
-//        Cache.shared.countLimit = 100
-        let request = Request(url: url)
-        Cache.shared[request] = image
+  }
+  
+  func requestIfUploadImageSucceed(path: String, params: Parameters,
+                                   completion: @escaping (_ result: AnyObject?, _ error: NSError?)->()?) {
+    self.dataManager.requestIfUploadImageSucceed(path: path, params: params) {
+      (result, error) -> Void in
+      if error != nil {
+        completion(nil, error)
+      }
+      if result != nil {
+        completion(result, nil)
+      }
     }
+  }
+  
+  // MARK: Life Cycle
+  func enterArtWorks(artistViewModelIndex: Int) {
+    self.artWorkSectionViewModels = []
+    self.artWorkMatrixViewModels = []
+    self.artWorkViewModels = []
+    self.dataManager.artWorkViewModels = []
     
-    func loadCacheImage(url: URL) -> UIImage? {
-        let request = Request(url: url)
-        let image = Cache.shared[request]
-        return image
+    self.currentArtistViewModel = self.artistViewModels?[artistViewModelIndex]
+    // TODO: mutil thread
+    if let currentArtistViewModel = self.currentArtistViewModel {
+      for service in currentArtistViewModel.services {
+        let artWorkMatrixViewModel: ArtWorkMatrixViewModel = ArtWorkMatrixViewModel(artType: ArtType(rawValue: service)!,
+                                                                                    artWorkFilteredViewModels: [ArtWorkSectionViewModel]())
+        guard var artWorkMatrixViewModels = self.artWorkMatrixViewModels else { return }
+        artWorkMatrixViewModels.append(artWorkMatrixViewModel)
+      }
     }
+  }
+  
+  func exitArtWorks() {
+    // TODO: finish it
+    self.insertArtWorks(artType: self.currentArtType, artistLink: self.currentArtistViewModel!.link,
+                        completion: { (result, error) -> Void in
+                          if error != nil {
+                            
+                          }
+                          if result {
+                            
+                          }
+    })
+  }
+  
+  func enterArtWorkDetail(selectedArtWork: Any) {
+    self.selectedArtWork = selectedArtWork
+  }
+  
+  func exitArtWorkDetail() {
     
-    
+  }
+  
+  func cacheImage(url: URL, image: UIImage) {
+    //        Cache.shared.costLimit = 1024 * 1024 * 100
+    //        Cache.shared.countLimit = 100
+    let request = Request(url: url)
+    Cache.shared[request] = image
+  }
+  
+  func loadCacheImage(url: URL) -> UIImage? {
+    let request = Request(url: url)
+    let image = Cache.shared[request]
+    return image
+  }
+  
+  
 }
